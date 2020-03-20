@@ -6,6 +6,11 @@ theme = "cleanwhite"
 disqusShortname = "zin3sublog"
 googleAnalytics = "UA-82826188-14"
 
+[frontmatter]
+    date = ["date", "publishDate", "lastmod"]
+    lastmod = [":git", "lastmod", "date", "publishDate"]
+    publishDate = ["publishDate", "date"]
+    expiryDate = ["expiryDate"]
 [params]
 
     bookmarks = true
