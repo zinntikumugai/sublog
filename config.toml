@@ -2,3 +2,5 @@ baseURL = "http://example.org/"
 languageCode = "ja"
 title = "さぶろぐ!"
 theme = "cleanwhite"
+
+disqusShortname = "zin3sublog"
