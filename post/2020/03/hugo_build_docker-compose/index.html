@@ -15,15 +15,15 @@
     
 
     
-    <meta name="title" content="さぶのブログを作りました" />
-    <meta property="og:title" content="さぶのブログを作りました" />
-    <meta property="twitter:title" content="さぶのブログを作りました" />
+    <meta name="title" content="Hugo をDocker-Composeでビルド、デプロイできるようにする" />
+    <meta property="og:title" content="Hugo をDocker-Composeでビルド、デプロイできるようにする" />
+    <meta property="twitter:title" content="Hugo をDocker-Composeでビルド、デプロイできるようにする" />
     
 
     
-    <meta name="description" content="以前から気になっていた、静的サイトジェネレーターの`HUGO`を使ったブログを作ってみました">
-    <meta property="og:description" content="以前から気になっていた、静的サイトジェネレーターの`HUGO`を使ったブログを作ってみました" />
-    <meta property="twitter:description" content="以前から気になっていた、静的サイトジェネレーターの`HUGO`を使ったブログを作ってみました" />
+    <meta name="description" content="">
+    <meta property="og:description" content="" />
+    <meta property="twitter:description" content="" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>さぶのブログを作りました-</title>
+    <title>Hugo をDocker-Composeでビルド、デプロイできるようにする-</title>
 
-    <link rel="canonical" href="/post/2020/03/newblog/">
+    <link rel="canonical" href="/post/2020/03/hugo_build_docker-compose/">
 
     <link rel="stylesheet" href="/css/iDisqus.min.css"/>
 	
@@ -163,16 +163,20 @@
                             hugo
                         </a>
                         
-                        <a class="tag" href="/tags/go" title="go">
-                            go
+                        <a class="tag" href="/tags/travis" title="travis">
+                            travis
                         </a>
                         
-                        <a class="tag" href="/tags/golang" title="golang">
-                            golang
+                        <a class="tag" href="/tags/docker" title="docker">
+                            docker
+                        </a>
+                        
+                        <a class="tag" href="/tags/docker-compose" title="docker-compose">
+                            docker-compose
                         </a>
                         
                     </div>
-                    <h1>さぶのブログを作りました</h1>
+                    <h1>Hugo をDocker-Composeでビルド、デプロイできるようにする</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         Posted by 
@@ -180,7 +184,7 @@
                                  &#34;zinntikumugai&#34;
                          
                         on 
-                        Tuesday, March 3, 2020
+                        Monday, January 1, 0001
                         
                         
                         
@@ -210,43 +214,122 @@
                 </header>
                 <nav id="TableOfContents">
   <ul>
-    <li><a href="#なぜhugo">なぜHUGO?</a></li>
-    <li><a href="#そもそも書くのが面倒くさい">そもそも書くのが面倒くさい</a></li>
-    <li><a href="#そもそもブログを書いている理由">そもそもブログを書いている理由</a></li>
-    <li><a href="#今後書く予定のもの">今後書く予定のもの</a></li>
-    <li><a href="#小話">小話</a></li>
+    <li><a href="#hugoのdocker">HugoのDocker</a></li>
+    <li><a href="#hugoのdockerimage">HugoのDockerImage</a></li>
+    <li><a href="#ファイル修正">ファイル修正</a></li>
+    <li><a href="#ciの対応">CIの対応</a></li>
+    <li><a href="#参考">参考</a></li>
   </ul>
 </nav>
                 
-                <h1 id="サブブログを作ってみました">サブブログを作ってみました</h1>
-<p>以前から気になっていた、静的サイトジェネレーターの<code>HUGO</code>を使ったブログを作ってみました</p>
-<h2 id="なぜhugo">なぜHUGO?</h2>
-<p>　仕事の関係でGoを使いそうになったときに調べ物の途中でHUGOに出会いました<br>
-　ブログは以前からWordPressを使っていましたがPHPやらMySQLやらで動作がもっさりしていて、OSSやら知名度やらでやたらと攻撃対象となることも多く、サーバーの対策が結構面倒でした<br>
-　静的サイトは生成してしまえば基本的にはHostingサービスに置いてしまえばいいので運用面でもお手軽です</p>
-<p>　もちろん動的サイトもそれなりにいいところはあるのですが、ただのブログにそこまでリソースを裂きたくないのです&hellip;<br>
-　アナリティクスやコメントなども外部サービスを使えば静的サイトでもできてしまいます</p>
-<h2 id="そもそも書くのが面倒くさい">そもそも書くのが面倒くさい</h2>
-<p>WordPressはJetPackプラグインを入れることでMarkDown記法には対応しています<br>
-しかし、若干挙動が異なることろが多いので</p>
-<ol>
-<li>VSCodeなどでMarkDownで書く</li>
-<li>MarkDownで書かれた記事をHTMLで出力</li>
-<li>出力されたHTNMLを最適化(idなど不要タグが書かれてしまうのでそれらを除去)</li>
-<li>WordPressにアップロード</li>
-</ol>
-<p>という結局面倒くさいことをしていました</p>
-<p>もちろんYなんたら記法で書くこともありますが、テーマの関係でh2タグが見づらいとか結局面倒くさいです</p>
-<p>要するに楽したいはずなのに余計めんどくさくなっていました</p>
-<h2 id="そもそもブログを書いている理由">そもそもブログを書いている理由</h2>
-<p>割と理由はいくつかありますが、主に備忘録のように記録に残して置きたいと言うのがあります。<br>
-サクッと書いてしまいたいわけですが先程のように書くことすらめんどい状態です</p>
-<p>なのでHUGOを使えばMarkDownのまま使えますし頑張っていきたいです(もちろん流石にWordPressの方からインポート！とは行きませが)</p>
-<h2 id="今後書く予定のもの">今後書く予定のもの</h2>
-<p>メインのブログから完全に移行してもいいかもしれませんが、そこそこの記事数があります<br>
-<del>しょうもない内容もあるので</del>メインのブログは残しつつ、さくっと書けるものなどはざっくりメモ書き程度に使い、深める場合はメインにも書くかもしれません(もちろんメインのブログも並行してのんびりやっていこうと思います)</p>
-<h2 id="小話">小話</h2>
-<p>Goの勉強がてらHUGO入れてみたけど使うところとしてはGoの要素がないんですねこれ()</p>
+                <p>環境構築とかめんどいのでDockerで全部できるようにしてみました</p>
+<h2 id="hugoのdocker">HugoのDocker</h2>
+<p>HugoのDockerイメージはなぜか公式から提供されていません<br>
+ローカルでの動作はバイナリを使うべきと言われても実際は</p>
+<ul>
+<li>Hugoを入れるのがめんどい</li>
+<li>Moduleを使うとなるとGoも入れるとかめんどい</li>
+<li>なんかめんどい
+と、まぁめんどいんですよ(適当)</li>
+</ul>
+<p>実際のところ、初期の環境はUbuntu、メイン環境はWindows、持ち歩くのはWindows<br>
+どの環境もDockerは入っていますが、近々どのマシンもOSレベルのお掃除を検討しているので今からHugoのみ入れるのも不便です<br>
+また、CIとのバージョン対応が今までは<code>travis.yml</code>に書き込んでいたのでバージョン差異があるとめんどかったのです</p>
+<p>ということでDockerでやりましょ(強引)</p>
+<h2 id="hugoのdockerimage">HugoのDockerImage</h2>
+<p><code>peaceiris</code>さんが作成されたモノを使います<br>
+<a href="https://github.com/peaceiris/hugo-extended-docker">https://github.com/peaceiris/hugo-extended-docker</a><br>
+最近のHugoに対応されていますし、Hugoのリリース後その日のうちに対応するとのことです</p>
+<h2 id="ファイル修正">ファイル修正</h2>
+<p><a href="https://github.com/zinntikumugai/sublog/commit/5f64259773826502c6c8c3d0b7f7acf822b8ec0c">https://github.com/zinntikumugai/sublog/commit/5f64259773826502c6c8c3d0b7f7acf822b8ec0c</a>
+こちらの修正の通りですが多少解説も兼ねて細かく書きます</p>
+<p>今回は<code>docker-compose</code>を使うので以下の通り</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#66d9ef">version</span>: <span style="color:#e6db74">&#39;3&#39;</span>
+
+<span style="color:#66d9ef">services</span>:
+  <span style="color:#66d9ef">hugo</span>:
+    <span style="color:#66d9ef">container_name</span>: hugo
+    <span style="color:#66d9ef">image</span>: peaceiris/hugo:v0<span style="color:#ae81ff">.67.1</span>
+    <span style="color:#75715e"># image: peaceiris/hugo:v0.67.1-mod  # Hugo Modules</span>
+    <span style="color:#66d9ef">ports</span>:
+      - <span style="color:#ae81ff">1313</span>:<span style="color:#ae81ff">1313</span>
+    <span style="color:#66d9ef">volumes</span>:
+      - ${PWD}/src:/src
+    <span style="color:#66d9ef">command</span>:
+      - server
+      - --bind=<span style="color:#ae81ff">0.0.0.0</span>
+      - --buildDrafts
+</code></pre></div><p><code>image</code>にHugoのバージョンを書いていますがdocker-composeの環境変数にしたほうがいいかもしれない(正確にはymlの環境変数だっけかな)</p>
+<p>Hugoで必要なファイル類は<code>src</code>ディレクトリ以下に配置してください(あくまでも好みですが)</p>
+<p>追加で修正が必要なのはHugoのテーマでしょうか<br>
+基本的に</p>
+<pre><code>- git submodule
+- zipでDLして配置
+</code></pre>
+<p>のいずれかですが、submoduleを使っていたので<code>.gitmodules</code>を書き換えています<br>
+実際はフォルダ削除とか色々してみましたが、初期pull状態でsubmoduleのpullをしてなかったところsubmoduleを再同期しても動作していなかったので、改めて</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">rm -rf themes/cleanwhite
+git submodule add https://github.com/zhaohuabing/hugo-theme-cleanwhite.git src/themes/cleanwhite
+</code></pre></div><p>と実行しました</p>
+<p>これで</p>
+<pre><code>docker-compose up
+</code></pre><p>を実行して、<code>http://localhost:1313</code>にアクセスすることでローカルテストすることができます</p>
+<h2 id="ciの対応">CIの対応</h2>
+<p><a href="https://github.com/zinntikumugai/sublog/commit/a59e6088fdc853ef1908b2d44e0bb3e004b058cb">https://github.com/zinntikumugai/sublog/commit/a59e6088fdc853ef1908b2d44e0bb3e004b058cb</a>
+TravisCIでGitHubPages にデプロイしているのでこれらに対応する必要があります</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#66d9ef">language</span>: go
+<span style="color:#66d9ef">dist</span>: trusty
+
+<span style="color:#75715e"># using docker</span>
+<span style="color:#66d9ef">services</span>:
+    - docker
+
+<span style="color:#75715e"># update docker</span>
+<span style="color:#66d9ef">addons</span>:
+    <span style="color:#66d9ef">apt</span>:
+        <span style="color:#66d9ef">packages</span>:
+            - docker-ce
+
+<span style="color:#66d9ef">env</span>:
+    - DOCKER_COMPOSE_VERSION=<span style="color:#ae81ff">1.25.4</span>
+
+<span style="color:#66d9ef">install</span>: <span style="color:#66d9ef">true</span>
+
+<span style="color:#66d9ef">before_install</span>:
+    <span style="color:#75715e"># update docker-compose</span>
+    - sudo rm /usr/local/bin/docker-compose
+    - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` &gt; docker-compose
+    - chmod +x docker-compose
+    - sudo mv docker-compose /usr/local/bin
+
+<span style="color:#66d9ef">script</span>:
+    - docker-compose run --rm hugo <span style="color:#e6db74">&#34;&#34;</span>
+
+<span style="color:#66d9ef">deploy</span>:
+    <span style="color:#66d9ef">provider</span>: pages
+    <span style="color:#66d9ef">local-dir</span>: src/public
+    <span style="color:#66d9ef">skip-cleanup</span>: <span style="color:#66d9ef">true</span>
+    <span style="color:#66d9ef">github-token</span>: $GITHUB_TOKEN
+    <span style="color:#66d9ef">keep-history</span>: <span style="color:#66d9ef">true</span>
+    <span style="color:#66d9ef">fqdn</span>: sublog.zinntikumugai.com
+    <span style="color:#66d9ef">on</span>:
+        <span style="color:#66d9ef">branch</span>: master
+</code></pre></div><p>以下に注意すればTravisCIでもDocker-Composeは動くようです</p>
+<ul>
+<li>Dockerを更新する必要がある</li>
+<li>Docker-Composeも更新する必要がある</li>
+<li>deployの参照フォルダの修正(<code>src</code>ディレクトリに変更した場合)</li>
+</ul>
+<p>Dockerの更新ですが通常のインストール(<code>apt</code>)同様に行う方法と<code>addons</code>の項目があるようです<br>
+なんとなく<code>addons</code>にしてみましたが3/21の時点で<code>18.06.3~ce~3-0~ubuntu</code>でした</p>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://qiita.com/peaceiris/items/14d1a0f17dd25911e33b">Hugo が動く最小構成の Docker イメージを作る</a></li>
+<li><a href="https://hugo.nakaken88.com/master/directory-structure/">Hugoフォルダの構成</a></li>
+<li><a href="https://qiita.com/niisan-tokyo/items/2f4a0c904a7c6bfcc367#docker-compose%E3%81%AE%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E3%81%8C%E5%8F%A4%E3%81%84%E3%82%88">Travis CIでDockerを利用したらハマったしょうもない日記</a></li>
+<li><a href="https://docs.docker.com/compose/install/">Install Docker Compose</a></li>
+<li><a href="https://docs.travis-ci.com/user/docker/">Using Docker in Builds</a></li>
+</ul>
 
 
                 
@@ -254,11 +337,11 @@
                 <hr>
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/post/2020/03/hugo_build_docker-compose/" data-toggle="tooltip" data-placement="top" title="Hugo をDocker-Composeでビルド、デプロイできるようにする">&larr;
-                            Previous Post</a>
-                    </li>
                     
+                    <li class="next">
+                        <a href="/post/2020/03/newblog/" data-toggle="tooltip" data-placement="top" title="さぶのブログを作りました">Next
+                            Post &rarr;</a>
+                    </li>
                     
                 </ul>
 
