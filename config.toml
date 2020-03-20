@@ -7,7 +7,13 @@ disqusShortname = "zin3sublog"
 googleAnalytics = "UA-82826188-14"
 
 [params]
-  [params.social]
-  rss       = true
-  twitter   = "https://twitter.com/uesitananame55"
-  github    = "https://github.com/zinntikumugai/"
+
+    bookmarks = true
+    [[params.bookmark_link]]
+    title = "Currency.ovh"
+    href = "https://Currency.ovh"
+
+    [params.social]
+    rss       = true
+    twitter   = "https://twitter.com/uesitananame55"
+    github    = "https://github.com/zinntikumugai/"
