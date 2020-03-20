@@ -32,7 +32,7 @@ https://github.com/peaceiris/hugo-extended-docker
 最近のHugoに対応されていますし、Hugoのリリース後その日のうちに対応するとのことです
 
 ## ファイル修正
-https://github.com/zinntikumugai/sublog/commit/5f64259773826502c6c8c3d0b7f7acf822b8ec0c
+https://github.com/zinntikumugai/sublog/commit/5f64259773826502c6c8c3d0b7f7acf822b8ec0c  
 こちらの修正の通りですが多少解説も兼ねて細かく書きます
 
 今回は`docker-compose`を使うので以下の通り
@@ -80,7 +80,7 @@ docker-compose up
 を実行して、`http://localhost:1313`にアクセスすることでローカルテストすることができます
 
 ## CIの対応
-https://github.com/zinntikumugai/sublog/commit/a59e6088fdc853ef1908b2d44e0bb3e004b058cb
+https://github.com/zinntikumugai/sublog/commit/a59e6088fdc853ef1908b2d44e0bb3e004b058cb  
 TravisCIでGitHubPages にデプロイしているのでこれらに対応する必要があります  
 
 ```yml
