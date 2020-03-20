@@ -25,7 +25,6 @@ before_install:
 
 script:
     - docker-compose run --rm hugo ""
-    - ls src
 
 deploy:
     provider: pages
