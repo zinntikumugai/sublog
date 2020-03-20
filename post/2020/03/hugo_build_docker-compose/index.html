@@ -21,9 +21,9 @@
     
 
     
-    <meta name="description" content="">
-    <meta property="og:description" content="" />
-    <meta property="twitter:description" content="" />
+    <meta name="description" content="環境構築とかめんどいのでDockerで全部できるようにしてみました">
+    <meta property="og:description" content="環境構築とかめんどいのでDockerで全部できるようにしてみました" />
+    <meta property="twitter:description" content="環境構築とかめんどいのでDockerで全部できるようにしてみました" />
     
 
     
@@ -218,6 +218,7 @@
     <li><a href="#hugoのdockerimage">HugoのDockerImage</a></li>
     <li><a href="#ファイル修正">ファイル修正</a></li>
     <li><a href="#ciの対応">CIの対応</a></li>
+    <li><a href="#使ってみて">使ってみて</a></li>
     <li><a href="#参考">参考</a></li>
   </ul>
 </nav>
@@ -229,9 +230,9 @@
 <ul>
 <li>Hugoを入れるのがめんどい</li>
 <li>Moduleを使うとなるとGoも入れるとかめんどい</li>
-<li>なんかめんどい
-と、まぁめんどいんですよ(適当)</li>
+<li>なんかめんどい</li>
 </ul>
+<p>と、まぁめんどいんですよ(適当)</p>
 <p>実際のところ、初期の環境はUbuntu、メイン環境はWindows、持ち歩くのはWindows<br>
 どの環境もDockerは入っていますが、近々どのマシンもOSレベルのお掃除を検討しているので今からHugoのみ入れるのも不便です<br>
 また、CIとのバージョン対応が今までは<code>travis.yml</code>に書き込んでいたのでバージョン差異があるとめんどかったのです</p>
@@ -322,6 +323,10 @@ TravisCIでGitHubPages にデプロイしているのでこれらに対応する
 </ul>
 <p>Dockerの更新ですが通常のインストール(<code>apt</code>)同様に行う方法と<code>addons</code>の項目があるようです<br>
 なんとなく<code>addons</code>にしてみましたが3/21の時点で<code>18.06.3~ce~3-0~ubuntu</code>でした</p>
+<h2 id="使ってみて">使ってみて</h2>
+<p>各環境を用意しなくてもいいが、デプロイ周りが余計複雑になってる気がする</p>
+<p>今回はHugoのみのDockerイメージを使いましたが、Hugo module込のイメージはかなり大きくなるとのこと(100MB未満が400MBほどに&hellip;)<br>
+まぁ、テーマが対応してなかったので使う必要がないと割り切りましたが使おうと思えばすぐ対応できるのでそのときに考えましょ</p>
 <h2 id="参考">参考</h2>
 <ul>
 <li><a href="https://qiita.com/peaceiris/items/14d1a0f17dd25911e33b">Hugo が動く最小構成の Docker イメージを作る</a></li>
@@ -329,6 +334,7 @@ TravisCIでGitHubPages にデプロイしているのでこれらに対応する
 <li><a href="https://qiita.com/niisan-tokyo/items/2f4a0c904a7c6bfcc367#docker-compose%E3%81%AE%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E3%81%8C%E5%8F%A4%E3%81%84%E3%82%88">Travis CIでDockerを利用したらハマったしょうもない日記</a></li>
 <li><a href="https://docs.docker.com/compose/install/">Install Docker Compose</a></li>
 <li><a href="https://docs.travis-ci.com/user/docker/">Using Docker in Builds</a></li>
+<li><a href="https://qiita.com/peaceiris/items/fa71db25080756e9a9bf">Hugo v0.56 新機能 Modules と deploy</a></li>
 </ul>
 
 

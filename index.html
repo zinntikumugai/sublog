@@ -207,25 +207,7 @@
         <div class="post-content-preview">
 	
             環境構築とかめんどいのでDockerで全部できるようにしてみました
-HugoのDocker HugoのDockerイメージはなぜか公式から提供されていません
-ローカルでの動作はバイナリを使うべきと言われても実際は
- Hugoを入れるのがめんどい Moduleを使うとなるとGoも入れるとかめんどい なんかめんどい と、まぁめんどいんですよ(適当)  実際のところ、初期の環境はUbuntu、メイン環境はWindows、持ち歩くのはWindows
-どの環境もDockerは入っていますが、近々どのマシンもOSレベルのお掃除を検討しているので今からHugoのみ入れるのも不便です
-また、CIとのバージョン対応が今まではtravis.ymlに書き込んでいたのでバージョン差異があるとめんどかったのです
-ということでDockerでやりましょ(強引)
-HugoのDockerImage peaceirisさんが作成されたモノを使います
-https://github.com/peaceiris/hugo-extended-docker
-最近のHugoに対応されていますし、Hugoのリリース後その日のうちに対応するとのことです
-ファイル修正 https://github.com/zinntikumugai/sublog/commit/5f64259773826502c6c8c3d0b7f7acf822b8ec0c こちらの修正の通りですが多少解説も兼ねて細かく書きます
-今回はdocker-composeを使うので以下の通り
-version: &#39;3&#39; services: hugo: container_name: hugo image: peaceiris/hugo:v0.67.1 # image: peaceiris/hugo:v0.67.1-mod # Hugo Modules ports: - 1313:1313 volumes: - ${PWD}/src:/src command: - server - --bind=0.0.0.0 - --buildDrafts imageにHugoのバージョンを書いていますがdocker-composeの環境変数にしたほうがいいかもしれない(正確にはymlの環境変数だっけかな)
-Hugoで必要なファイル類はsrcディレクトリ以下に配置してください(あくまでも好みですが)
-追加で修正が必要なのはHugoのテーマでしょうか
-基本的に
-- git submodule - zipでDLして配置  のいずれかですが、submoduleを使っていたので.gitmodulesを書き換えています
-実際はフォルダ削除とか色々してみましたが、初期pull状態でsubmoduleのpullをしてなかったところsubmoduleを再同期しても動作していなかったので、改めて
-rm -rf themes/cleanwhite git submodule add https://github.com/zhaohuabing/hugo-theme-cleanwhite.git src/themes/cleanwhite と実行しました
-       
+        
         </div>
     </a>
     <p class="post-meta">
