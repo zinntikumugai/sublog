@@ -1,7 +1,7 @@
 ---
 title:       "Hugo をDocker-Composeでビルド、デプロイできるようにする"
 subtitle:    ""
-description: ""
+description: "環境構築とかめんどいのでDockerで全部できるようにしてみました"
 date:        2020/03/21
 author:      "zinntikumugai"
 image:       ""
@@ -17,6 +17,7 @@ HugoのDockerイメージはなぜか公式から提供されていません
 - Hugoを入れるのがめんどい
 - Moduleを使うとなるとGoも入れるとかめんどい
 - なんかめんどい
+
 と、まぁめんどいんですよ(適当)
 
 実際のところ、初期の環境はUbuntu、メイン環境はWindows、持ち歩くのはWindows  
@@ -131,9 +132,16 @@ deploy:
 Dockerの更新ですが通常のインストール(`apt`)同様に行う方法と`addons`の項目があるようです  
 なんとなく`addons`にしてみましたが3/21の時点で`18.06.3~ce~3-0~ubuntu`でした
 
+## 使ってみて
+各環境を用意しなくてもいいが、デプロイ周りが余計複雑になってる気がする  
+
+今回はHugoのみのDockerイメージを使いましたが、Hugo module込のイメージはかなり大きくなるとのこと(100MB未満が400MBほどに...)  
+まぁ、テーマが対応してなかったので使う必要がないと割り切りましたが使おうと思えばすぐ対応できるのでそのときに考えましょ
+
 ## 参考
 - [Hugo が動く最小構成の Docker イメージを作る](https://qiita.com/peaceiris/items/14d1a0f17dd25911e33b)
 - [Hugoフォルダの構成](https://hugo.nakaken88.com/master/directory-structure/)
 - [Travis CIでDockerを利用したらハマったしょうもない日記](https://qiita.com/niisan-tokyo/items/2f4a0c904a7c6bfcc367#docker-compose%E3%81%AE%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E3%81%8C%E5%8F%A4%E3%81%84%E3%82%88)
 - [Install Docker Compose](https://docs.docker.com/compose/install/)
 - [Using Docker in Builds](https://docs.travis-ci.com/user/docker/)
+- [Hugo v0.56 新機能 Modules と deploy](https://qiita.com/peaceiris/items/fa71db25080756e9a9bf)
