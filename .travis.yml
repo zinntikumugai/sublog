@@ -13,6 +13,7 @@ befor_script:
     - sudo dpkg -i hugo_${HUGO_VERSION}_Linux-64bit.deb
 
 script:
+    - cd src
     - hugo -v
 
 deploy:
