@@ -2,7 +2,7 @@
 title:       "Hugo をDocker-Composeでビルド、デプロイできるようにする"
 subtitle:    ""
 description: "環境構築とかめんどいのでDockerで全部できるようにしてみました"
-date:        2020/03/21
+date:        2020-03-21
 author:      "zinntikumugai"
 image:       ""
 tags:        ["hugo","travis","docker","docker-compose"]
