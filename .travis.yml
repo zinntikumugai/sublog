@@ -1,24 +1,34 @@
 language: go
 dist: trusty
 
-sudo: false
+# using docker
+services:
+    - docker
+
+# update docker
+addons:
+    apt:
+        packages:
+            - docker-ce
 
 env:
-    - HUGO_VERSION=0.65.3
+    - DOCKER_COMPOSE_VERSION=1.25.4
 
 install: true
 
-befor_script:
-    - wget https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.deb
-    - sudo dpkg -i hugo_${HUGO_VERSION}_Linux-64bit.deb
+before_install:
+    # update docker-compose
+    - sudo rm /usr/local/bin/docker-compose
+    - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+    - chmod +x docker-compose
+    - sudo mv docker-compose /usr/local/bin
 
 script:
-    - cd src
-    - hugo -v
+    - docker-compose run --rm hugo ""
 
 deploy:
     provider: pages
-    local-dir: public
+    local-dir: src/public
     skip-cleanup: true
     github-token: $GITHUB_TOKEN
     keep-history: true
