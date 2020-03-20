@@ -28,7 +28,8 @@ HugoのDocker HugoのDockerイメージはなぜか公式から提供されて�
 HugoのDockerImage peaceirisさんが作成されたモノを使います
 https://github.com/peaceiris/hugo-extended-docker
 最近のHugoに対応されていますし、Hugoのリリース後その日のうちに対応するとのことです
-ファイル修正 https://github.com/zinntikumugai/sublog/commit/5f64259773826502c6c8c3d0b7f7acf822b8ec0c こちらの修正の通りですが多少解説も兼ねて細かく書きます
+ファイル修正 https://github.com/zinntikumugai/sublog/commit/5f64259773826502c6c8c3d0b7f7acf822b8ec0c
+こちらの修正の通りですが多少解説も兼ねて細かく書きます
 今回はdocker-composeを使うので以下の通り
 version: &amp;#39;3&amp;#39; services: hugo: container_name: hugo image: peaceiris/hugo:v0.67.1 # image: peaceiris/hugo:v0.67.1-mod # Hugo Modules ports: - 1313:1313 volumes: - ${PWD}/src:/src command: - server - --bind=0.0.0.0 - --buildDrafts imageにHugoのバージョンを書いていますがdocker-composeの環境変数にしたほうがいいかもしれない(正確にはymlの環境変数だっけかな)
 Hugoで必要なファイル類はsrcディレクトリ以下に配置してください(あくまでも好みですが)
