@@ -1,0 +1,25 @@
+language: go
+dist: trusty
+
+sudo: false
+
+env:
+    - HUGO_VERSION=0.65.3
+
+install: true
+
+befor_script:
+    - wget https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.deb
+    - sudo dpkg -i hugo_${HUGO_VERSION}_Linux-64bit.deb
+
+script:
+    - hugo -v
+
+deploy:
+    provider: pages
+    local-dir: public
+    skip-cleanup: true
+    github-token: $GITHUB_TOKEN
+    keep-history: true
+    on:
+        branch: master
