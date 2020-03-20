@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on さぶろぐ!</title>
-    <link>http://example.org/tags/</link>
+    <link>http://sublog.zinntikumugai.com/tags/</link>
     <description>Recent content in Tags on さぶろぐ!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Tue, 03 Mar 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://example.org/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://sublog.zinntikumugai.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>go</title>
-      <link>http://example.org/tags/go/</link>
+      <link>http://sublog.zinntikumugai.com/tags/go/</link>
       <pubDate>Tue, 03 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/go/</guid>
+      <guid>http://sublog.zinntikumugai.com/tags/go/</guid>
       <description></description>
     </item>
     
     <item>
       <title>golang</title>
-      <link>http://example.org/tags/golang/</link>
+      <link>http://sublog.zinntikumugai.com/tags/golang/</link>
       <pubDate>Tue, 03 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/golang/</guid>
+      <guid>http://sublog.zinntikumugai.com/tags/golang/</guid>
       <description></description>
     </item>
     
     <item>
       <title>hugo</title>
-      <link>http://example.org/tags/hugo/</link>
+      <link>http://sublog.zinntikumugai.com/tags/hugo/</link>
       <pubDate>Tue, 03 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/tags/hugo/</guid>
+      <guid>http://sublog.zinntikumugai.com/tags/hugo/</guid>
       <description></description>
     </item>
     
