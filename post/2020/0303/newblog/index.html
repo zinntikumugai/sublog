@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="さぶろぐ!">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="http://example.org//">
+    <meta property="twitter:image" content="http://example.org//" />
+    
+
+    
+    <meta name="title" content="さぶのブログを作りました" />
+    <meta property="og:title" content="さぶのブログを作りました" />
+    <meta property="twitter:title" content="さぶのブログを作りました" />
+    
+
+    
+    <meta name="description" content="以前から気になっていた、静的サイトジェネレーターの`HUGO`を使ったブログを作ってみました">
+    <meta property="og:description" content="以前から気になっていた、静的サイトジェネレーターの`HUGO`を使ったブログを作ってみました" />
+    <meta property="twitter:description" content="以前から気になっていた、静的サイトジェネレーターの`HUGO`を使ったブログを作ってみました" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>さぶのブログを作りました-</title>
+
+    <link rel="canonical" href="/post/2020/0303/newblog/">
+
+    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
+	
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+    
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    
+    <script src="/js/jquery.min.js"></script>
+    
+    
+    <script src="/js/bootstrap.min.js"></script>
+    
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">さぶろぐ!</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/blog">blog</a>
+                        </li>
+                        
+                    
+                    
+		    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/hugo" title="hugo">
+                            hugo
+                        </a>
+                        
+                        <a class="tag" href="/tags/go" title="go">
+                            go
+                        </a>
+                        
+                        <a class="tag" href="/tags/golang" title="golang">
+                            golang
+                        </a>
+                        
+                    </div>
+                    <h1>さぶのブログを作りました</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                                 &#34;zinntikumugai&#34;
+                         
+                        on 
+                        Tuesday, March 3, 2020
+                        
+                        
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-11 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#なぜhugo">なぜHUGO?</a></li>
+    <li><a href="#そもそも書くのが面倒くさい">そもそも書くのが面倒くさい</a></li>
+    <li><a href="#そもそもブログを書いている理由">そもそもブログを書いている理由</a></li>
+    <li><a href="#今後書く予定のもの">今後書く予定のもの</a></li>
+    <li><a href="#小話">小話</a></li>
+  </ul>
+</nav>
+                
+                <h1 id="サブブログを作ってみました">サブブログを作ってみました</h1>
+<p>以前から気になっていた、静的サイトジェネレーターの<code>HUGO</code>を使ったブログを作ってみました</p>
+<h2 id="なぜhugo">なぜHUGO?</h2>
+<p>　仕事の関係でGoを使いそうになったときに調べ物の途中でHUGOに出会いました<br>
+　ブログは以前からWordPressを使っていましたがPHPやらMySQLやらで動作がもっさりしていて、OSSやら知名度やらでやたらと攻撃対象となることも多く、サーバーの対策が結構面倒でした<br>
+　静的サイトは生成してしまえば基本的にはHostingサービスに置いてしまえばいいので運用面でもお手軽です</p>
+<p>　もちろん動的サイトもそれなりにいいところはあるのですが、ただのブログにそこまでリソースを裂きたくないのです&hellip;<br>
+　アナリティクスやコメントなども外部サービスを使えば静的サイトでもできてしまいます</p>
+<h2 id="そもそも書くのが面倒くさい">そもそも書くのが面倒くさい</h2>
+<p>WordPressはJetPackプラグインを入れることでMarkDown記法には対応しています<br>
+しかし、若干挙動が異なることろが多いので</p>
+<ol>
+<li>VSCodeなどでMarkDownで書く</li>
+<li>MarkDownで書かれた記事をHTMLで出力</li>
+<li>出力されたHTNMLを最適化(idなど不要タグが書かれてしまうのでそれらを除去)</li>
+<li>WordPressにアップロード</li>
+</ol>
+<p>という結局面倒くさいことをしていました</p>
+<p>もちろんYなんたら記法で書くこともありますが、テーマの関係でh2タグが見づらいとか結局面倒くさいです</p>
+<p>要するに楽したいはずなのに余計めんどくさくなっていました</p>
+<h2 id="そもそもブログを書いている理由">そもそもブログを書いている理由</h2>
+<p>割と理由はいくつかありますが、主に備忘録のように記録に残して置きたいと言うのがあります。<br>
+サクッと書いてしまいたいわけですが先程のように書くことすらめんどい状態です</p>
+<p>なのでHUGOを使えばMarkDownのまま使えますし頑張っていきたいです(もちろん流石にWordPressの方からインポート！とは行きませが)</p>
+<h2 id="今後書く予定のもの">今後書く予定のもの</h2>
+<p>メインのブログから完全に移行してもいいかもしれませんが、そこそこの記事数があります<br>
+<del>しょうもない内容もあるので</del>メインのブログは残しつつ、さくっと書けるものなどはざっくりメモ書き程度に使い、深める場合はメインにも書くかもしれません(もちろんメインのブログも並行してのんびりやっていこうと思います)</p>
+<h2 id="小話">小話</h2>
+<p>Goの勉強がてらHUGO入れてみたけど使うところとしてはGoの要素がないんですねこれ()</p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    
+                </ul>
+
+                
+<div id="disqus-comment"></div>
+
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "zin3sublog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+            </div>
+            
+            <div class="
+                col-lg-11 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                    
+                    
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; さぶろぐ! 2020
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+</body>
+</html>
