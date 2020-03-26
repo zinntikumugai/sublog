@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>dos on さぶろぐ!</title>
+    <link>https://sublog.zinntikumugai.com/tags/dos/</link>
+    <description>Recent content in dos on さぶろぐ!</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Thu, 26 Mar 2020 13:55:23 +0000</lastBuildDate>
+    
+	<atom:link href="https://sublog.zinntikumugai.com/tags/dos/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>supermicroのマザーボードをBIOS更新する</title>
+      <link>https://sublog.zinntikumugai.com/post/2020/03/update_bios_for_supermicro/</link>
+      <pubDate>Thu, 26 Mar 2020 13:55:23 +0000</pubDate>
+      
+      <guid>https://sublog.zinntikumugai.com/post/2020/03/update_bios_for_supermicro/</guid>
+      <description>SupermicroのマザーボードをBIOS更新する気分的に更新してみる 使うマシン
+   HW Name     MB supermicro X7SPA-HF-D525   CPU Intel Atom D252   Ram 4GB    公式サイトよりBIOSをダウンロード https://www.supermicro.com/products/motherboard/ATOM/ICH9/X7SPA-HF-D525.cfm
+展開してReadmeを見ると
+	1. Save this file to your computer. 2. extract the files to a DOS bootable device (such as a bootable USB stick, or CD). 2. Boot to a DOS prompt and type AMI.BAT BIOSname.###. 4. Do not interrupt the process until the flashing is complete.</description>
+    </item>
+    
+  </channel>
+</rss>

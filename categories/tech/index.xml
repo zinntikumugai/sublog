@@ -6,10 +6,38 @@
     <description>Recent content in Tech on さぶろぐ!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 21 Mar 2020 04:32:00 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 26 Mar 2020 13:57:06 +0000</lastBuildDate>
     
 	<atom:link href="https://sublog.zinntikumugai.com/categories/tech/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Proxmox入れるときに手こずった</title>
+      <link>https://sublog.zinntikumugai.com/post/2020/03/debian_install_proxmox/</link>
+      <pubDate>Thu, 26 Mar 2020 13:57:06 +0000</pubDate>
+      
+      <guid>https://sublog.zinntikumugai.com/post/2020/03/debian_install_proxmox/</guid>
+      <description>使ってないマシンにProxmoxを入れてみる
+Proxmoxとは？ 仮想環境を提供するサーバーソフトウェア
+無料でWeb管理,CPUフルパワーで使えるのが強い(VMwareとかね&amp;hellip;制限がね..)
+通常インストール 公式イメージを使ってインストールをしてみる
+no cdrom foundと出て、なんかうまく行かない
+ Download Rufus from https://rufus.ie/. Either install it or use the portable version. Select the destination drive and the Proxmox VE ISO file.
+Once you click Start a dialog asking to download a different version of GRUB will show up. Click No. In the next dialog select the DD mode.
+An alternative to Rufus is Etcher. Download Etcher from https://etcher.io. It will guide you through the process of selecting the ISO and your USB Drive.</description>
+    </item>
+    
+    <item>
+      <title>supermicroのマザーボードをBIOS更新する</title>
+      <link>https://sublog.zinntikumugai.com/post/2020/03/update_bios_for_supermicro/</link>
+      <pubDate>Thu, 26 Mar 2020 13:55:23 +0000</pubDate>
+      
+      <guid>https://sublog.zinntikumugai.com/post/2020/03/update_bios_for_supermicro/</guid>
+      <description>SupermicroのマザーボードをBIOS更新する気分的に更新してみる 使うマシン
+   HW Name     MB supermicro X7SPA-HF-D525   CPU Intel Atom D252   Ram 4GB    公式サイトよりBIOSをダウンロード https://www.supermicro.com/products/motherboard/ATOM/ICH9/X7SPA-HF-D525.cfm
+展開してReadmeを見ると
+	1. Save this file to your computer. 2. extract the files to a DOS bootable device (such as a bootable USB stick, or CD). 2. Boot to a DOS prompt and type AMI.BAT BIOSname.###. 4. Do not interrupt the process until the flashing is complete.</description>
+    </item>
     
     <item>
       <title>Hugo をDocker-Composeでビルド、デプロイできるようにする</title>

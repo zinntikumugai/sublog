@@ -4,7 +4,72 @@
   
   <url>
     <loc>https://sublog.zinntikumugai.com/categories/</loc>
-    <lastmod>2020-03-21T04:32:00+09:00</lastmod>
+    <lastmod>2020-03-26T13:57:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sublog.zinntikumugai.com/tags/kvm/</loc>
+    <lastmod>2020-03-26T13:57:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sublog.zinntikumugai.com/tags/openvz/</loc>
+    <lastmod>2020-03-26T13:57:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sublog.zinntikumugai.com/post/</loc>
+    <lastmod>2020-03-26T13:57:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sublog.zinntikumugai.com/tags/proxmox/</loc>
+    <lastmod>2020-03-26T13:57:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sublog.zinntikumugai.com/post/2020/03/debian_install_proxmox/</loc>
+    <lastmod>2020-03-26T13:57:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sublog.zinntikumugai.com/tags/</loc>
+    <lastmod>2020-03-26T13:57:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sublog.zinntikumugai.com/categories/tech/</loc>
+    <lastmod>2020-03-26T13:57:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sublog.zinntikumugai.com/</loc>
+    <lastmod>2020-03-26T13:57:06+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sublog.zinntikumugai.com/tags/bios/</loc>
+    <lastmod>2020-03-26T13:55:23+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sublog.zinntikumugai.com/tags/bios-update/</loc>
+    <lastmod>2020-03-26T13:55:23+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sublog.zinntikumugai.com/tags/dos/</loc>
+    <lastmod>2020-03-26T13:55:23+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sublog.zinntikumugai.com/tags/supermicro/</loc>
+    <lastmod>2020-03-26T13:55:23+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sublog.zinntikumugai.com/post/2020/03/update_bios_for_supermicro/</loc>
+    <lastmod>2020-03-26T13:55:23+00:00</lastmod>
   </url>
   
   <url>
@@ -28,27 +93,7 @@
   </url>
   
   <url>
-    <loc>https://sublog.zinntikumugai.com/post/</loc>
-    <lastmod>2020-03-21T04:32:00+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sublog.zinntikumugai.com/tags/</loc>
-    <lastmod>2020-03-21T04:32:00+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sublog.zinntikumugai.com/categories/tech/</loc>
-    <lastmod>2020-03-21T04:32:00+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://sublog.zinntikumugai.com/tags/travis/</loc>
-    <lastmod>2020-03-21T04:32:00+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sublog.zinntikumugai.com/</loc>
     <lastmod>2020-03-21T04:32:00+09:00</lastmod>
   </url>
   

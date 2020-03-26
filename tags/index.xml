@@ -6,10 +6,73 @@
     <description>Recent content in Tags on さぶろぐ!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 21 Mar 2020 04:32:00 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 26 Mar 2020 13:57:06 +0000</lastBuildDate>
     
 	<atom:link href="https://sublog.zinntikumugai.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>kvm</title>
+      <link>https://sublog.zinntikumugai.com/tags/kvm/</link>
+      <pubDate>Thu, 26 Mar 2020 13:57:06 +0000</pubDate>
+      
+      <guid>https://sublog.zinntikumugai.com/tags/kvm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>openvz</title>
+      <link>https://sublog.zinntikumugai.com/tags/openvz/</link>
+      <pubDate>Thu, 26 Mar 2020 13:57:06 +0000</pubDate>
+      
+      <guid>https://sublog.zinntikumugai.com/tags/openvz/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>proxmox</title>
+      <link>https://sublog.zinntikumugai.com/tags/proxmox/</link>
+      <pubDate>Thu, 26 Mar 2020 13:57:06 +0000</pubDate>
+      
+      <guid>https://sublog.zinntikumugai.com/tags/proxmox/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bios</title>
+      <link>https://sublog.zinntikumugai.com/tags/bios/</link>
+      <pubDate>Thu, 26 Mar 2020 13:55:23 +0000</pubDate>
+      
+      <guid>https://sublog.zinntikumugai.com/tags/bios/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bios update</title>
+      <link>https://sublog.zinntikumugai.com/tags/bios-update/</link>
+      <pubDate>Thu, 26 Mar 2020 13:55:23 +0000</pubDate>
+      
+      <guid>https://sublog.zinntikumugai.com/tags/bios-update/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dos</title>
+      <link>https://sublog.zinntikumugai.com/tags/dos/</link>
+      <pubDate>Thu, 26 Mar 2020 13:55:23 +0000</pubDate>
+      
+      <guid>https://sublog.zinntikumugai.com/tags/dos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>supermicro</title>
+      <link>https://sublog.zinntikumugai.com/tags/supermicro/</link>
+      <pubDate>Thu, 26 Mar 2020 13:55:23 +0000</pubDate>
+      
+      <guid>https://sublog.zinntikumugai.com/tags/supermicro/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>docker</title>
