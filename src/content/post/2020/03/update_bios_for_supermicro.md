@@ -2,7 +2,9 @@
 title: "supermicroのマザーボードをBIOS更新する"
 description: "ちょっと諸事情で調子悪かったのでBIOS更新してみました"
 date: 2020-03-26T13:55:23Z
-draft: true
+author:      "zinntikumugai"
+tags:        ["supermicro","bios","bios update","dos"]
+categories:  ["Tech" ]
 ---
 
 # SupermicroのマザーボードをBIOS更新する気分的に更新してみる
