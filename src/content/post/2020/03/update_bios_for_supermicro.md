@@ -53,7 +53,8 @@ FreeDOSが起動したら
 ami x7spa3.719
 ```
 と実行すればあとは勝手にやってくれます
-
+![Imgur](https://i.imgur.com/n99CQBd.jpg)
+![Imgur](https://i.imgur.com/vxRdEHK.jpg)
 最近のマザーは普通にBIOS/UEFIに更新機能があるので多少て惑いましたが、DOS更新も大して変わりませんね  
 ちなみに本来の目的的にはBIOS更新では治りませんでした(知ってた)
 
