@@ -3,7 +3,7 @@ title: "Proxmox入れるときに手こずった"
 description: "余ってるマシンにProxmoxを入れる話"
 date: 2020-03-26T13:57:06Z
 author:      "zinntikumugai"
-tags:        ["supermicro","bios","bios update","dos"]
+tags:        ["proxmox","kvm","openvz"]
 categories:  ["Tech" ]
 ---
 
