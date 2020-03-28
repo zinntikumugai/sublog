@@ -15,15 +15,15 @@
     
 
     
-    <meta name="title" content="Proxmox入れるときに手こずった" />
-    <meta property="og:title" content="Proxmox入れるときに手こずった" />
-    <meta property="twitter:title" content="Proxmox入れるときに手こずった" />
+    <meta name="title" content="Hugoのテーマをモジュール化する" />
+    <meta property="og:title" content="Hugoのテーマをモジュール化する" />
+    <meta property="twitter:title" content="Hugoのテーマをモジュール化する" />
     
 
     
-    <meta name="description" content="余ってるマシンにProxmoxを入れる話">
-    <meta property="og:description" content="余ってるマシンにProxmoxを入れる話" />
-    <meta property="twitter:description" content="余ってるマシンにProxmoxを入れる話" />
+    <meta name="description" content="バージョン管理も含めHugo Modulesを使ってみました">
+    <meta property="og:description" content="バージョン管理も含めHugo Modulesを使ってみました" />
+    <meta property="twitter:description" content="バージョン管理も含めHugo Modulesを使ってみました" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Proxmox入れるときに手こずった-</title>
+    <title>Hugoのテーマをモジュール化する-</title>
 
-    <link rel="canonical" href="/post/2020/03/debian_install_proxmox/">
+    <link rel="canonical" href="/post/2020/03/hugo_modules/">
 
     <link rel="stylesheet" href="/css/iDisqus.min.css"/>
 	
@@ -159,20 +159,24 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/proxmox" title="proxmox">
-                            proxmox
+                        <a class="tag" href="/tags/hugo" title="hugo">
+                            hugo
                         </a>
                         
-                        <a class="tag" href="/tags/kvm" title="kvm">
-                            kvm
+                        <a class="tag" href="/tags/travis" title="travis">
+                            travis
                         </a>
                         
-                        <a class="tag" href="/tags/openvz" title="openvz">
-                            openvz
+                        <a class="tag" href="/tags/docker" title="docker">
+                            docker
+                        </a>
+                        
+                        <a class="tag" href="/tags/docker-compose" title="docker-compose">
+                            docker-compose
                         </a>
                         
                     </div>
-                    <h1>Proxmox入れるときに手こずった</h1>
+                    <h1>Hugoのテーマをモジュール化する</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         Posted by 
@@ -180,7 +184,7 @@
                                  &#34;zinntikumugai&#34;
                          
                         on 
-                        Thursday, March 26, 2020
+                        Saturday, March 28, 2020
                         
                         
                         
@@ -210,85 +214,81 @@
                 </header>
                 <nav id="TableOfContents">
   <ul>
-    <li><a href="#proxmoxとは">Proxmoxとは？</a></li>
-    <li><a href="#通常インストール">通常インストール</a></li>
-    <li><a href="#debianからproxmox">DebianからProxmox</a>
-      <ul>
-        <li><a href="#debianを入れる">Debianを入れる</a></li>
-        <li><a href="#prxmoxを入れる">Prxmoxを入れる</a></li>
-      </ul>
-    </li>
-    <li><a href="#懸念点">懸念点</a>
-      <ul>
-        <li><a href="#マシンスペックがゴミ">マシンスペックがゴミ</a></li>
-        <li><a href="#raidが弊害">RAIDが弊害？</a></li>
-      </ul>
-    </li>
+    <li><a href="#git-submodule-のリポジトリを消す">git submodule のリポジトリを消す</a></li>
+    <li><a href="#docker-composeymlの修正"><code>docker-compose.yml</code>の修正</a></li>
+    <li><a href="#configtomlの修正"><code>config.toml</code>の修正</a></li>
+    <li><a href="#モジュールの初期化">モジュールの初期化</a></li>
+    <li><a href="#動作">動作</a></li>
+    <li><a href="#その他">その他</a></li>
+    <li><a href="#参考">参考</a></li>
   </ul>
 </nav>
                 
-                <p>使ってないマシンにProxmoxを入れてみる</p>
-<h2 id="proxmoxとは">Proxmoxとは？</h2>
-<p>仮想環境を提供するサーバーソフトウェア<br>
-無料でWeb管理,CPUフルパワーで使えるのが強い(VMwareとかね&hellip;制限がね..)</p>
-<h2 id="通常インストール">通常インストール</h2>
-<p>公式イメージを使ってインストールをしてみる<br>
-<img src="https://i.imgur.com/qguK8Rq.jpg" alt="">
-<code>no cdrom found</code>と出て、なんかうまく行かない</p>
-<blockquote>
-<p>Download Rufus from <a href="https://rufus.ie/">https://rufus.ie/</a>. Either install it or use the portable version. Select the destination drive and the Proxmox VE ISO file.</p>
-<p>Once you click Start a dialog asking to download a different version of GRUB will show up. Click No. In the next dialog select the DD mode.</p>
-<p>An alternative to Rufus is Etcher. Download Etcher from <a href="https://etcher.io">https://etcher.io</a>. It will guide you through the process of selecting the ISO and your USB Drive.</p>
-</blockquote>
-<p>公式wiki よりRufus等を使う場合はisoモードではなくddモードを使えとのこと<br>
-いつものノリでやってたのでRufusのisoモードを使ってました</p>
-<p>ddモードにして行くとすんなり起動してくれたけどインストールはコケる&hellip;<br>
-DHCPでコケるみたいだけど、debugモードにして<code>/etc/networking/interface</code>をいじってもだめ(おそらく見てない)</p>
-<p>何回やってもだめなので諦めてDebianを入れてからprxmoxを入れることにする</p>
-<h2 id="debianからproxmox">DebianからProxmox</h2>
-<h3 id="debianを入れる">Debianを入れる</h3>
-<p>Debian公式からイメージを取得して適当にインストールする<br>
-<a href="https://www.server-world.info/query?os=Debian_10&amp;p=install">https://www.server-world.info/query?os=Debian_10&amp;p=install</a></p>
-<h3 id="prxmoxを入れる">Prxmoxを入れる</h3>
-<p><a href="https://pve.proxmox.com/wiki/Install_Proxmox_VE_on_Debian_Buster">https://pve.proxmox.com/wiki/Install_Proxmox_VE_on_Debian_Buster</a><br>
-公式wikiを参照の上インストールしていく</p>
-<h4 id="etchosts-の修正"><code>/etc/hosts</code> の修正</h4>
-<p>今回のマシンは<code>192.168.0.19</code>、ホスト名は<code>node3</code>だったので</p>
-<pre><code>127.0.0.1       localhost
-#127.0.1.1      node3
-192.168.0.19    node3
+                <h1 id="hugoのテーマをモジュール化する">Hugoのテーマをモジュール化する</h1>
+<p>なんとなくできたらいいなぐらいでやってみます<br>
+というより、やりましたの記事が無い(ﾄﾞｳｼﾃ&hellip;<br>
+今回もDocker版Hugoでやっていきます<br>
+バイナリ版の場合はgoとgitを使える環境を整えましょう</p>
+<h2 id="git-submodule-のリポジトリを消す">git submodule のリポジトリを消す</h2>
+<p>先に消してしまいます</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git submodule deinit -f src/themes/cleanwhite
+</code></pre></div><p><code>-f PATH</code>のところは各自のものに置き換えてください</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ rm -rf src/themes/
+</code></pre></div><p>テーマフォルダも中身がないので消してしまいます</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ rm -f .gitmodules
+</code></pre></div><p>他にsubmoduleを使うものも無いので消してしまいます</p>
+<h2 id="docker-composeymlの修正"><code>docker-compose.yml</code>の修正</h2>
+<p>HugoのDockerイメージは軽量版はモジュールを扱えないので対応版に変更します</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">version</span>: <span style="color:#e6db74">&#39;3&#39;</span>
 
-# The following lines are desirable for IPv6 capable hosts
-::1     localhost ip6-localhost ip6-loopback
-ff02::1 ip6-allnodes
-ff02::2 ip6-allrouters
-</code></pre><p>コメントアウトの<code>127.0.1.1</code>は不要<br>
-というかこれを追加したせいで進まなかった()</p>
-<pre><code>hostname --ip-address
-</code></pre><p>コマンドで指定したIPが帰ってくるか確認しておく</p>
-<h4 id="install">install</h4>
-<p>下準備(リポジトリの登録)</p>
-<pre><code>echo &quot;deb http://download.proxmox.com/debian/pve buster pve-no-subscription&quot; &gt; /etc/apt/sources.list.d/pve-install-repo.list
-wget http://download.proxmox.com/debian/proxmox-ve-release-6.x.gpg -O /etc/apt/trusted.gpg.d/proxmox-ve-release-6.x.gpg
-chmod +r /etc/apt/trusted.gpg.d/proxmox-ve-release-6.x.gpg  # optional, if you have a non-default umask
-apt update &amp;&amp; apt full-upgrade
-</code></pre><p>そしてインストール</p>
-<pre><code>apt install proxmox-ve postfix open-iscsi
-</code></pre><p>何故かコケたりしたがhostsのミスやホスト名のミスをしてた<br>
-後処理</p>
-<pre><code>apt remove os-prober
-</code></pre><p>無事インストールができると<code>https://&lt;ip&gt;:8006</code>に接続すると管理パネルにつなげることができる</p>
-<h2 id="懸念点">懸念点</h2>
-<h3 id="マシンスペックがゴミ">マシンスペックがゴミ</h3>
-<p>CPUにAtom,メモリが4Gとかもうね&hellip;<br>
-NASにしておいたほうが良かった説もあるがそのうちやっていこう(多分)</p>
-<h3 id="raidが弊害">RAIDが弊害？</h3>
-<p>もともとSMB鯖だったのでRAID5?がしてあった(多分)<br>
-OSのインストール先をSATADOM(8GB)にしたためデータドライブとして使ってくれると思ったが使ってくれない<br>
-ストーレジ自体は認識してるので使えそうだけど勝手にやってくれないっぽい<br>
-<img src="https://i.imgur.com/cRqmTSO.png" alt=""><br>
-後でRAID解除してフォーマットしたりしたが未使用のディスクとしては認識してくれないようで&hellip;<br>
-ハードウェアRAIDのほうが楽だなぁ&hellip;</p>
+<span style="color:#66d9ef">services</span>:
+  <span style="color:#66d9ef">hugo</span>:
+    <span style="color:#66d9ef">container_name</span>: hugo
+    <span style="color:#75715e"># image: peaceiris/hugo:v0.67.1</span>
+    <span style="color:#66d9ef">image</span>: peaceiris/hugo:v0<span style="color:#ae81ff">.67.1</span>-mod  <span style="color:#75715e"># Hugo Modules</span>
+    <span style="color:#66d9ef">ports</span>:
+<span style="color:#75715e"># ～～ 以下略 ～～</span>
+</code></pre></div><h2 id="configtomlの修正"><code>config.toml</code>の修正</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml"><span style="color:#a6e22e">baseURL</span> = <span style="color:#e6db74">&#34;https://sublog.zinntikumugai.com/&#34;</span>
+<span style="color:#a6e22e">languageCode</span> = <span style="color:#e6db74">&#34;ja&#34;</span>
+<span style="color:#a6e22e">title</span> = <span style="color:#e6db74">&#34;さぶろぐ!&#34;</span>
+<span style="color:#75715e"># theme = &#34;cleanwhite&#34;</span>
+
+<span style="color:#75715e"># ～～ 中略 ～～ </span>
+
+[<span style="color:#a6e22e">module</span>]
+    [[<span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">imports</span>]]
+    <span style="color:#a6e22e">path</span>=<span style="color:#e6db74">&#34;github.com/zhaohuabing/hugo-theme-cleanwhite&#34;</span>
+</code></pre></div><p>まず、(おそらくどこでもいいと思いますが)末尾に利用するモジュールのリポジトリを追加します
+今回はテーマのみなので一つですね<br>
+そして、<strong><code>theme=&lt;テーマ名&gt;</code>を消します</strong><br>
+このモジュールとして追加したテーマなんですが、どうも名前が変わってしまうのか、<code>theme=&lt;テーマ名&gt;</code>の記載があるときはローカルフォルダを見てしまうようで、そんなテーマはないと言われてしまいました
+<img src="https://i.imgur.com/krVMitt.png" alt=""></p>
+<h2 id="モジュールの初期化">モジュールの初期化</h2>
+<p>最後に初期化をしないと動きません</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ docker-compose.exe run hugo mod init github.com/zinntikumugai/sublog
+</code></pre></div><p>これはDocker版なのでバイナリ版は</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hugo mod init リポジトリURL
+</code></pre></div><p>リポジトリURLはこのプロジェクトのリポジトリ(サイトのリポジトリ)のURLを追加してください
+これを行うと<code>go.mod</code>というファイルが作成されます</p>
+<h2 id="動作">動作</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ docker-compose up
+</code></pre></div><p>をすると
+<img src="https://i.imgur.com/2ib0oF9.png" alt="">
+<img src="https://i.imgur.com/FUC9wQo.png" alt=""></p>
+<p>git submoduleでやってたときのように動かすことができました<br>
+また、モジュールを取得するときに<code>go.sum</code>というファイルも追加されました(チェックサム用のようです)</p>
+<h2 id="その他">その他</h2>
+<p>モジュール関連のコマンドに</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hugo mode vendor
+</code></pre></div><p>という<code>_vendor</code>ディレクトリにモジュールの依存関係を保存するコマンドがありますが、PHPのComposer的なやつかと思っていまいしたが、試したときはモジュールの外部読み込みがなくなるだけのようなのでこのブログにおいては必要なさそうです</p>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://qiita.com/peaceiris/items/fa71db25080756e9a9bf">https://qiita.com/peaceiris/items/fa71db25080756e9a9bf</a></li>
+<li><a href="https://gohugo.io/hugo-modules/use-modules/">https://gohugo.io/hugo-modules/use-modules/</a></li>
+<li><a href="https://gohugo.io/commands/hugo_mod_init/">https://gohugo.io/commands/hugo_mod_init/</a></li>
+<li><a href="https://qiita.com/uegaki-masaaki/items/f6d625c92bb355ccc409">https://qiita.com/uegaki-masaaki/items/f6d625c92bb355ccc409</a></li>
+</ul>
 
 
                 
@@ -297,15 +297,10 @@ OSのインストール先をSATADOM(8GB)にしたためデータドライブと
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/post/2020/03/update_bios_for_supermicro/" data-toggle="tooltip" data-placement="top" title="supermicroのマザーボードをBIOS更新する">&larr;
+                        <a href="/post/2020/03/debian_install_proxmox/" data-toggle="tooltip" data-placement="top" title="Proxmox入れるときに手こずった">&larr;
                             Previous Post</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/post/2020/03/hugo_modules/" data-toggle="tooltip" data-placement="top" title="Hugoのテーマをモジュール化する">Next
-                            Post &rarr;</a>
-                    </li>
                     
                 </ul>
 
