@@ -5,23 +5,33 @@ title = "さぶろぐ!"
 disqusShortname = "zin3sublog"
 googleAnalytics = "UA-82826188-14"
 
-[frontmatter]
-    date = ["date", "publishDate", "lastmod"]
-    lastmod = [":git", "lastmod", "date", "publishDate"]
-    publishDate = ["publishDate", "date"]
-    expiryDate = ["expiryDate"]
+# theme config
 [params]
+style = "auto"
+fullRss = true
 
-    bookmarks = true
-    [[params.bookmark_link]]
-    title = "Currency.ovh"
-    href = "https://Currency.ovh"
+[params.assets]
+css = ["css/font.css"]   # fonts
 
-    [params.social]
-    rss       = true
-    twitter   = "https://twitter.com/uesitananame55"
-    github    = "https://github.com/zinntikumugai/"
+[params.comments]
+enable = true
+
+[params.nav]
+showCategories = true
+showTags = true
+
+[[params.nav.custom]]
+title = "Currency.ovh"
+url = "https://Currency.ovh"
+
+[[params.nav.custom]]
+title = "GitHub"
+url = "https://github.com/zinntikumugai/"
+
+[[params.nav.custom]]
+title = "Twitter"
+url = "https://twitter.com/uesitananame55"
 
 [module]
     [[module.imports]]
-    path="github.com/zhaohuabing/hugo-theme-cleanwhite"
+    path="github.com/cntrump/hugo-notepadium"
