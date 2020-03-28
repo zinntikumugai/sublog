@@ -23,6 +23,11 @@
   </url>
   
   <url>
+    <loc>https://sublog.zinntikumugai.com/tags/hugo-modules/</loc>
+    <lastmod>2020-03-28T08:38:58+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://sublog.zinntikumugai.com/post/2020/03/hugo_modules/</loc>
     <lastmod>2020-03-28T08:38:58+00:00</lastmod>
   </url>
@@ -39,11 +44,6 @@
   
   <url>
     <loc>https://sublog.zinntikumugai.com/categories/tech/</loc>
-    <lastmod>2020-03-28T08:38:58+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sublog.zinntikumugai.com/tags/travis/</loc>
     <lastmod>2020-03-28T08:38:58+00:00</lastmod>
   </url>
   
@@ -99,6 +99,11 @@
   
   <url>
     <loc>https://sublog.zinntikumugai.com/post/2020/03/hugo_build_docker-compose/</loc>
+    <lastmod>2020-03-21T04:32:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sublog.zinntikumugai.com/tags/travis/</loc>
     <lastmod>2020-03-21T04:32:00+09:00</lastmod>
   </url>
   
