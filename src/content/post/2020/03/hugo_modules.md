@@ -5,7 +5,7 @@ description: "バージョン管理も含めHugo Modulesを使ってみました
 date: 2020-03-28T08:38:58Z
 author:      "zinntikumugai"
 image:       ""
-tags:        ["hugo","travis","docker","docker-compose"]
+tags:        ["hugo","hugo modules","docker","docker-compose"]
 categories:  ["Tech" ]
 ---
 
