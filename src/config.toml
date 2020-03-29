@@ -3,7 +3,7 @@ languageCode = "ja"
 title = "さぶろぐ!"
 
 disqusShortname = "zin3sublog"
-googleAnalytics = "UA-82826188-14"
+# googleAnalytics = "UA-82826188-14"
 
 # theme config
 copyright = "©2020 さぶろぐ！"
@@ -11,6 +11,7 @@ copyright = "©2020 さぶろぐ！"
 style = "auto"
 fullRss = true
 dateFormat = "2006年01月02日"  # if unset, default is "2006-01-02"
+googleTagManagerID = "GTM-PMS4FG4"  # custom
 
 [params.assets]
 css = ["css/font.css"]   # fonts
