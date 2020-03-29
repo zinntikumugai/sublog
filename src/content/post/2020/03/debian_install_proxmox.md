@@ -9,6 +9,7 @@ categories:  ["Tech" ]
 
 使ってないマシンにProxmoxを入れてみる
 
+<!--more-->
 ## Proxmoxとは？
 仮想環境を提供するサーバーソフトウェア  
 無料でWeb管理,CPUフルパワーで使えるのが強い(VMwareとかね...制限がね..)
