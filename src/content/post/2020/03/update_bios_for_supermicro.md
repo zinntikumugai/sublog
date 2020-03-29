@@ -9,6 +9,7 @@ categories:  ["Tech" ]
 
 # SupermicroのマザーボードをBIOS更新する気分的に更新してみる
 
+<!--more-->
 使うマシン
 
 |HW|Name|
