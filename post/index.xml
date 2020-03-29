@@ -1,114 +1,62 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on さぶろぐ!</title>
-    <link>https://sublog.zinntikumugai.com/post/</link>
+    <link>/post/</link>
     <description>Recent content in Posts on さぶろぐ!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
+    <copyright>©2020 さぶろぐ！</copyright>
     <lastBuildDate>Sat, 28 Mar 2020 08:38:58 +0000</lastBuildDate>
     
-	<atom:link href="https://sublog.zinntikumugai.com/post/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Hugoのテーマをモジュール化する</title>
-      <link>https://sublog.zinntikumugai.com/post/2020/03/hugo_modules/</link>
+      <link>/post/2020/03/hugo_modules/</link>
       <pubDate>Sat, 28 Mar 2020 08:38:58 +0000</pubDate>
       
-      <guid>https://sublog.zinntikumugai.com/post/2020/03/hugo_modules/</guid>
-      <description>Hugoのテーマをモジュール化する なんとなくできたらいいなぐらいでやってみます
-というより、やりましたの記事が無い(ﾄﾞｳｼﾃ&amp;hellip;
-今回もDocker版Hugoでやっていきます
-バイナリ版の場合はgoとgitを使える環境を整えましょう
-git submodule のリポジトリを消す 先に消してしまいます
-$ git submodule deinit -f src/themes/cleanwhite -f PATHのところは各自のものに置き換えてください
-$ rm -rf src/themes/ テーマフォルダも中身がないので消してしまいます
-$ rm -f .gitmodules 他にsubmoduleを使うものも無いので消してしまいます
-docker-compose.ymlの修正 HugoのDockerイメージは軽量版はモジュールを扱えないので対応版に変更します
-version: &amp;#39;3&amp;#39; services: hugo: container_name: hugo # image: peaceiris/hugo:v0.67.1 image: peaceiris/hugo:v0.67.1-mod # Hugo Modules ports: # ～～ 以下略 ～～ config.tomlの修正 baseURL = &amp;#34;https://sublog.zinntikumugai.com/&amp;#34; languageCode = &amp;#34;ja&amp;#34; title = &amp;#34;さぶろぐ!&amp;#34; # theme = &amp;#34;cleanwhite&amp;#34; # ～～ 中略 ～～  [module] [[module.imports]] path=&amp;#34;github.com/zhaohuabing/hugo-theme-cleanwhite&amp;#34; まず、(おそらくどこでもいいと思いますが)末尾に利用するモジュールのリポジトリを追加します 今回はテーマのみなので一つですね</description>
+      <guid>/post/2020/03/hugo_modules/</guid>
+      <description>&lt;h1 id=&#34;hugoのテーマをモジュール化する&#34;&gt;Hugoのテーマをモジュール化する&lt;/h1&gt;
+&lt;p&gt;なんとなくできたらいいなぐらいでやってみます&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Proxmox入れるときに手こずった</title>
-      <link>https://sublog.zinntikumugai.com/post/2020/03/debian_install_proxmox/</link>
+      <link>/post/2020/03/debian_install_proxmox/</link>
       <pubDate>Thu, 26 Mar 2020 13:57:06 +0000</pubDate>
       
-      <guid>https://sublog.zinntikumugai.com/post/2020/03/debian_install_proxmox/</guid>
-      <description>使ってないマシンにProxmoxを入れてみる
-Proxmoxとは？ 仮想環境を提供するサーバーソフトウェア
-無料でWeb管理,CPUフルパワーで使えるのが強い(VMwareとかね&amp;hellip;制限がね..)
-通常インストール 公式イメージを使ってインストールをしてみる
-no cdrom foundと出て、なんかうまく行かない
- Download Rufus from https://rufus.ie/. Either install it or use the portable version. Select the destination drive and the Proxmox VE ISO file.
-Once you click Start a dialog asking to download a different version of GRUB will show up. Click No. In the next dialog select the DD mode.
-An alternative to Rufus is Etcher. Download Etcher from https://etcher.io. It will guide you through the process of selecting the ISO and your USB Drive.</description>
+      <guid>/post/2020/03/debian_install_proxmox/</guid>
+      <description>&lt;p&gt;使ってないマシンにProxmoxを入れてみる&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>supermicroのマザーボードをBIOS更新する</title>
-      <link>https://sublog.zinntikumugai.com/post/2020/03/update_bios_for_supermicro/</link>
+      <link>/post/2020/03/update_bios_for_supermicro/</link>
       <pubDate>Thu, 26 Mar 2020 13:55:23 +0000</pubDate>
       
-      <guid>https://sublog.zinntikumugai.com/post/2020/03/update_bios_for_supermicro/</guid>
-      <description>SupermicroのマザーボードをBIOS更新する気分的に更新してみる 使うマシン
-   HW Name     MB supermicro X7SPA-HF-D525   CPU Intel Atom D252   Ram 4GB    公式サイトよりBIOSをダウンロード https://www.supermicro.com/products/motherboard/ATOM/ICH9/X7SPA-HF-D525.cfm
-展開してReadmeを見ると
-	1. Save this file to your computer. 2. extract the files to a DOS bootable device (such as a bootable USB stick, or CD). 2. Boot to a DOS prompt and type AMI.BAT BIOSname.###. 4. Do not interrupt the process until the flashing is complete.</description>
+      <guid>/post/2020/03/update_bios_for_supermicro/</guid>
+      <description>&lt;h1 id=&#34;supermicroのマザーボードをbios更新する気分的に更新してみる&#34;&gt;SupermicroのマザーボードをBIOS更新する気分的に更新してみる&lt;/h1&gt;</description>
     </item>
     
     <item>
       <title>Hugo をDocker-Composeでビルド、デプロイできるようにする</title>
-      <link>https://sublog.zinntikumugai.com/post/2020/03/hugo_build_docker-compose/</link>
+      <link>/post/2020/03/hugo_build_docker-compose/</link>
       <pubDate>Sat, 21 Mar 2020 04:32:00 +0900</pubDate>
       
-      <guid>https://sublog.zinntikumugai.com/post/2020/03/hugo_build_docker-compose/</guid>
-      <description>環境構築とかめんどいのでDockerで全部できるようにしてみました
-HugoのDocker HugoのDockerイメージはなぜか公式から提供されていません
-ローカルでの動作はバイナリを使うべきと言われても実際は
- Hugoを入れるのがめんどい Moduleを使うとなるとGoも入れるとかめんどい なんかめんどい  と、まぁめんどいんですよ(適当)
-実際のところ、初期の環境はUbuntu、メイン環境はWindows、持ち歩くのはWindows
-どの環境もDockerは入っていますが、近々どのマシンもOSレベルのお掃除を検討しているので今からHugoのみ入れるのも不便です
-また、CIとのバージョン対応が今まではtravis.ymlに書き込んでいたのでバージョン差異があるとめんどかったのです
-ということでDockerでやりましょ(強引)
-HugoのDockerImage peaceirisさんが作成されたモノを使います
-https://github.com/peaceiris/hugo-extended-docker
-最近のHugoに対応されていますし、Hugoのリリース後その日のうちに対応するとのことです
-ファイル修正 https://github.com/zinntikumugai/sublog/commit/5f64259773826502c6c8c3d0b7f7acf822b8ec0c
-こちらの修正の通りですが多少解説も兼ねて細かく書きます
-今回はdocker-composeを使うので以下の通り
-version: &amp;#39;3&amp;#39; services: hugo: container_name: hugo image: peaceiris/hugo:v0.67.1 # image: peaceiris/hugo:v0.67.1-mod # Hugo Modules ports: - 1313:1313 volumes: - ${PWD}/src:/src command: - server - --bind=0.0.0.0 - --buildDrafts imageにHugoのバージョンを書いていますがdocker-composeの環境変数にしたほうがいいかもしれない(正確にはymlの環境変数だっけかな)
-Hugoで必要なファイル類はsrcディレクトリ以下に配置してください(あくまでも好みですが)
-追加で修正が必要なのはHugoのテーマでしょうか
-基本的に
-- git submodule - zipでDLして配置  のいずれかですが、submoduleを使っていたので.gitmodulesを書き換えています
-実際はフォルダ削除とか色々してみましたが、初期pull状態でsubmoduleのpullをしてなかったところsubmoduleを再同期しても動作していなかったので、改めて
-rm -rf themes/cleanwhite git submodule add https://github.com/zhaohuabing/hugo-theme-cleanwhite.git src/themes/cleanwhite と実行しました</description>
+      <guid>/post/2020/03/hugo_build_docker-compose/</guid>
+      <description>&lt;p&gt;環境構築とかめんどいのでDockerで全部できるようにしてみました&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>さぶのブログを作りました</title>
-      <link>https://sublog.zinntikumugai.com/post/2020/03/newblog/</link>
+      <link>/post/2020/03/newblog/</link>
       <pubDate>Tue, 03 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://sublog.zinntikumugai.com/post/2020/03/newblog/</guid>
-      <description>サブブログを作ってみました 以前から気になっていた、静的サイトジェネレーターのHUGOを使ったブログを作ってみました
-なぜHUGO? 　仕事の関係でGoを使いそうになったときに調べ物の途中でHUGOに出会いました
-ブログは以前からWordPressを使っていましたがPHPやらMySQLやらで動作がもっさりしていて、OSSやら知名度やらでやたらと攻撃対象となることも多く、サーバーの対策が結構面倒でした
-静的サイトは生成してしまえば基本的にはHostingサービスに置いてしまえばいいので運用面でもお手軽です
-　もちろん動的サイトもそれなりにいいところはあるのですが、ただのブログにそこまでリソースを裂きたくないのです&amp;hellip;
-アナリティクスやコメントなども外部サービスを使えば静的サイトでもできてしまいます
-そもそも書くのが面倒くさい WordPressはJetPackプラグインを入れることでMarkDown記法には対応しています
-しかし、若干挙動が異なることろが多いので
- VSCodeなどでMarkDownで書く MarkDownで書かれた記事をHTMLで出力 出力されたHTNMLを最適化(idなど不要タグが書かれてしまうのでそれらを除去) WordPressにアップロード  という結局面倒くさいことをしていました
-もちろんYなんたら記法で書くこともありますが、テーマの関係でh2タグが見づらいとか結局面倒くさいです
-要するに楽したいはずなのに余計めんどくさくなっていました
-そもそもブログを書いている理由 割と理由はいくつかありますが、主に備忘録のように記録に残して置きたいと言うのがあります。
-サクッと書いてしまいたいわけですが先程のように書くことすらめんどい状態です
-なのでHUGOを使えばMarkDownのまま使えますし頑張っていきたいです(もちろん流石にWordPressの方からインポート！とは行きませが)
-今後書く予定のもの メインのブログから完全に移行してもいいかもしれませんが、そこそこの記事数があります
-しょうもない内容もあるのでメインのブログは残しつつ、さくっと書けるものなどはざっくりメモ書き程度に使い、深める場合はメインにも書くかもしれません(もちろんメインのブログも並行してのんびりやっていこうと思います)
-小話 Goの勉強がてらHUGO入れてみたけど使うところとしてはGoの要素がないんですねこれ()</description>
+      <guid>/post/2020/03/newblog/</guid>
+      <description>&lt;h1 id=&#34;サブブログを作ってみました&#34;&gt;サブブログを作ってみました&lt;/h1&gt;
+&lt;p&gt;以前から気になっていた、静的サイトジェネレーターの&lt;code&gt;HUGO&lt;/code&gt;を使ったブログを作ってみました&lt;/p&gt;</description>
     </item>
     
   </channel>

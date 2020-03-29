@@ -1,139 +1,140 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on さぶろぐ!</title>
-    <link>https://sublog.zinntikumugai.com/tags/</link>
+    <link>/tags/</link>
     <description>Recent content in Tags on さぶろぐ!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
+    <copyright>©2020 さぶろぐ！</copyright>
     <lastBuildDate>Sat, 28 Mar 2020 08:38:58 +0000</lastBuildDate>
     
-	<atom:link href="https://sublog.zinntikumugai.com/tags/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>docker</title>
-      <link>https://sublog.zinntikumugai.com/tags/docker/</link>
+      <link>/tags/docker/</link>
       <pubDate>Sat, 28 Mar 2020 08:38:58 +0000</pubDate>
       
-      <guid>https://sublog.zinntikumugai.com/tags/docker/</guid>
+      <guid>/tags/docker/</guid>
       <description></description>
     </item>
     
     <item>
       <title>docker-compose</title>
-      <link>https://sublog.zinntikumugai.com/tags/docker-compose/</link>
+      <link>/tags/docker-compose/</link>
       <pubDate>Sat, 28 Mar 2020 08:38:58 +0000</pubDate>
       
-      <guid>https://sublog.zinntikumugai.com/tags/docker-compose/</guid>
+      <guid>/tags/docker-compose/</guid>
       <description></description>
     </item>
     
     <item>
       <title>hugo</title>
-      <link>https://sublog.zinntikumugai.com/tags/hugo/</link>
+      <link>/tags/hugo/</link>
       <pubDate>Sat, 28 Mar 2020 08:38:58 +0000</pubDate>
       
-      <guid>https://sublog.zinntikumugai.com/tags/hugo/</guid>
+      <guid>/tags/hugo/</guid>
       <description></description>
     </item>
     
     <item>
       <title>hugo modules</title>
-      <link>https://sublog.zinntikumugai.com/tags/hugo-modules/</link>
+      <link>/tags/hugo-modules/</link>
       <pubDate>Sat, 28 Mar 2020 08:38:58 +0000</pubDate>
       
-      <guid>https://sublog.zinntikumugai.com/tags/hugo-modules/</guid>
+      <guid>/tags/hugo-modules/</guid>
       <description></description>
     </item>
     
     <item>
       <title>kvm</title>
-      <link>https://sublog.zinntikumugai.com/tags/kvm/</link>
+      <link>/tags/kvm/</link>
       <pubDate>Thu, 26 Mar 2020 13:57:06 +0000</pubDate>
       
-      <guid>https://sublog.zinntikumugai.com/tags/kvm/</guid>
+      <guid>/tags/kvm/</guid>
       <description></description>
     </item>
     
     <item>
       <title>openvz</title>
-      <link>https://sublog.zinntikumugai.com/tags/openvz/</link>
+      <link>/tags/openvz/</link>
       <pubDate>Thu, 26 Mar 2020 13:57:06 +0000</pubDate>
       
-      <guid>https://sublog.zinntikumugai.com/tags/openvz/</guid>
+      <guid>/tags/openvz/</guid>
       <description></description>
     </item>
     
     <item>
       <title>proxmox</title>
-      <link>https://sublog.zinntikumugai.com/tags/proxmox/</link>
+      <link>/tags/proxmox/</link>
       <pubDate>Thu, 26 Mar 2020 13:57:06 +0000</pubDate>
       
-      <guid>https://sublog.zinntikumugai.com/tags/proxmox/</guid>
+      <guid>/tags/proxmox/</guid>
       <description></description>
     </item>
     
     <item>
       <title>bios</title>
-      <link>https://sublog.zinntikumugai.com/tags/bios/</link>
+      <link>/tags/bios/</link>
       <pubDate>Thu, 26 Mar 2020 13:55:23 +0000</pubDate>
       
-      <guid>https://sublog.zinntikumugai.com/tags/bios/</guid>
+      <guid>/tags/bios/</guid>
       <description></description>
     </item>
     
     <item>
       <title>bios update</title>
-      <link>https://sublog.zinntikumugai.com/tags/bios-update/</link>
+      <link>/tags/bios-update/</link>
       <pubDate>Thu, 26 Mar 2020 13:55:23 +0000</pubDate>
       
-      <guid>https://sublog.zinntikumugai.com/tags/bios-update/</guid>
+      <guid>/tags/bios-update/</guid>
       <description></description>
     </item>
     
     <item>
       <title>dos</title>
-      <link>https://sublog.zinntikumugai.com/tags/dos/</link>
+      <link>/tags/dos/</link>
       <pubDate>Thu, 26 Mar 2020 13:55:23 +0000</pubDate>
       
-      <guid>https://sublog.zinntikumugai.com/tags/dos/</guid>
+      <guid>/tags/dos/</guid>
       <description></description>
     </item>
     
     <item>
       <title>supermicro</title>
-      <link>https://sublog.zinntikumugai.com/tags/supermicro/</link>
+      <link>/tags/supermicro/</link>
       <pubDate>Thu, 26 Mar 2020 13:55:23 +0000</pubDate>
       
-      <guid>https://sublog.zinntikumugai.com/tags/supermicro/</guid>
+      <guid>/tags/supermicro/</guid>
       <description></description>
     </item>
     
     <item>
       <title>travis</title>
-      <link>https://sublog.zinntikumugai.com/tags/travis/</link>
+      <link>/tags/travis/</link>
       <pubDate>Sat, 21 Mar 2020 04:32:00 +0900</pubDate>
       
-      <guid>https://sublog.zinntikumugai.com/tags/travis/</guid>
+      <guid>/tags/travis/</guid>
       <description></description>
     </item>
     
     <item>
       <title>go</title>
-      <link>https://sublog.zinntikumugai.com/tags/go/</link>
+      <link>/tags/go/</link>
       <pubDate>Tue, 03 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://sublog.zinntikumugai.com/tags/go/</guid>
+      <guid>/tags/go/</guid>
       <description></description>
     </item>
     
     <item>
       <title>golang</title>
-      <link>https://sublog.zinntikumugai.com/tags/golang/</link>
+      <link>/tags/golang/</link>
       <pubDate>Tue, 03 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://sublog.zinntikumugai.com/tags/golang/</guid>
+      <guid>/tags/golang/</guid>
       <description></description>
     </item>
     

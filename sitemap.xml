@@ -1,130 +1,27 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-  <url>
-    <loc>https://sublog.zinntikumugai.com/categories/</loc>
-    <lastmod>2020-03-28T08:38:58+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sublog.zinntikumugai.com/tags/docker/</loc>
-    <lastmod>2020-03-28T08:38:58+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sublog.zinntikumugai.com/tags/docker-compose/</loc>
-    <lastmod>2020-03-28T08:38:58+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sublog.zinntikumugai.com/tags/hugo/</loc>
-    <lastmod>2020-03-28T08:38:58+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sublog.zinntikumugai.com/tags/hugo-modules/</loc>
-    <lastmod>2020-03-28T08:38:58+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sublog.zinntikumugai.com/post/2020/03/hugo_modules/</loc>
-    <lastmod>2020-03-28T08:38:58+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sublog.zinntikumugai.com/post/</loc>
-    <lastmod>2020-03-28T08:38:58+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sublog.zinntikumugai.com/tags/</loc>
-    <lastmod>2020-03-28T08:38:58+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sublog.zinntikumugai.com/categories/tech/</loc>
-    <lastmod>2020-03-28T08:38:58+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sublog.zinntikumugai.com/</loc>
-    <lastmod>2020-03-28T08:38:58+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sublog.zinntikumugai.com/tags/kvm/</loc>
-    <lastmod>2020-03-26T13:57:06+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sublog.zinntikumugai.com/tags/openvz/</loc>
-    <lastmod>2020-03-26T13:57:06+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sublog.zinntikumugai.com/tags/proxmox/</loc>
-    <lastmod>2020-03-26T13:57:06+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sublog.zinntikumugai.com/post/2020/03/debian_install_proxmox/</loc>
-    <lastmod>2020-03-26T13:57:06+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sublog.zinntikumugai.com/tags/bios/</loc>
-    <lastmod>2020-03-26T13:55:23+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sublog.zinntikumugai.com/tags/bios-update/</loc>
-    <lastmod>2020-03-26T13:55:23+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sublog.zinntikumugai.com/tags/dos/</loc>
-    <lastmod>2020-03-26T13:55:23+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sublog.zinntikumugai.com/tags/supermicro/</loc>
-    <lastmod>2020-03-26T13:55:23+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sublog.zinntikumugai.com/post/2020/03/update_bios_for_supermicro/</loc>
-    <lastmod>2020-03-26T13:55:23+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sublog.zinntikumugai.com/post/2020/03/hugo_build_docker-compose/</loc>
-    <lastmod>2020-03-21T04:32:00+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sublog.zinntikumugai.com/tags/travis/</loc>
-    <lastmod>2020-03-21T04:32:00+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sublog.zinntikumugai.com/categories/blog/</loc>
-    <lastmod>2020-03-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sublog.zinntikumugai.com/tags/go/</loc>
-    <lastmod>2020-03-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sublog.zinntikumugai.com/tags/golang/</loc>
-    <lastmod>2020-03-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sublog.zinntikumugai.com/post/2020/03/newblog/</loc>
-    <lastmod>2020-03-03T00:00:00+00:00</lastmod>
-  </url>
-  
-</urlset>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"><url>
+    <loc>https://sublog.zinntikumugai.com/categories/</loc><lastmod>2020-03-28T08:38:58+00:00</lastmod></url><url>
+    <loc>https://sublog.zinntikumugai.com/tags/docker/</loc><lastmod>2020-03-28T08:38:58+00:00</lastmod></url><url>
+    <loc>https://sublog.zinntikumugai.com/tags/docker-compose/</loc><lastmod>2020-03-28T08:38:58+00:00</lastmod></url><url>
+    <loc>https://sublog.zinntikumugai.com/tags/hugo/</loc><lastmod>2020-03-28T08:38:58+00:00</lastmod></url><url>
+    <loc>https://sublog.zinntikumugai.com/tags/hugo-modules/</loc><lastmod>2020-03-28T08:38:58+00:00</lastmod></url><url>
+    <loc>https://sublog.zinntikumugai.com/post/2020/03/hugo_modules/</loc><lastmod>2020-03-28T08:38:58+00:00</lastmod></url><url>
+    <loc>https://sublog.zinntikumugai.com/post/</loc><lastmod>2020-03-28T08:38:58+00:00</lastmod></url><url>
+    <loc>https://sublog.zinntikumugai.com/tags/</loc><lastmod>2020-03-28T08:38:58+00:00</lastmod></url><url>
+    <loc>https://sublog.zinntikumugai.com/categories/tech/</loc><lastmod>2020-03-28T08:38:58+00:00</lastmod></url><url>
+    <loc>https://sublog.zinntikumugai.com/</loc><lastmod>2020-03-28T08:38:58+00:00</lastmod></url><url>
+    <loc>https://sublog.zinntikumugai.com/tags/kvm/</loc><lastmod>2020-03-26T13:57:06+00:00</lastmod></url><url>
+    <loc>https://sublog.zinntikumugai.com/tags/openvz/</loc><lastmod>2020-03-26T13:57:06+00:00</lastmod></url><url>
+    <loc>https://sublog.zinntikumugai.com/tags/proxmox/</loc><lastmod>2020-03-26T13:57:06+00:00</lastmod></url><url>
+    <loc>https://sublog.zinntikumugai.com/post/2020/03/debian_install_proxmox/</loc><lastmod>2020-03-26T13:57:06+00:00</lastmod></url><url>
+    <loc>https://sublog.zinntikumugai.com/tags/bios/</loc><lastmod>2020-03-26T13:55:23+00:00</lastmod></url><url>
+    <loc>https://sublog.zinntikumugai.com/tags/bios-update/</loc><lastmod>2020-03-26T13:55:23+00:00</lastmod></url><url>
+    <loc>https://sublog.zinntikumugai.com/tags/dos/</loc><lastmod>2020-03-26T13:55:23+00:00</lastmod></url><url>
+    <loc>https://sublog.zinntikumugai.com/tags/supermicro/</loc><lastmod>2020-03-26T13:55:23+00:00</lastmod></url><url>
+    <loc>https://sublog.zinntikumugai.com/post/2020/03/update_bios_for_supermicro/</loc><lastmod>2020-03-26T13:55:23+00:00</lastmod></url><url>
+    <loc>https://sublog.zinntikumugai.com/post/2020/03/hugo_build_docker-compose/</loc><lastmod>2020-03-21T04:32:00+09:00</lastmod></url><url>
+    <loc>https://sublog.zinntikumugai.com/tags/travis/</loc><lastmod>2020-03-21T04:32:00+09:00</lastmod></url><url>
+    <loc>https://sublog.zinntikumugai.com/categories/blog/</loc><lastmod>2020-03-03T00:00:00+00:00</lastmod></url><url>
+    <loc>https://sublog.zinntikumugai.com/tags/go/</loc><lastmod>2020-03-03T00:00:00+00:00</lastmod></url><url>
+    <loc>https://sublog.zinntikumugai.com/tags/golang/</loc><lastmod>2020-03-03T00:00:00+00:00</lastmod></url><url>
+    <loc>https://sublog.zinntikumugai.com/post/2020/03/newblog/</loc><lastmod>2020-03-03T00:00:00+00:00</lastmod></url></urlset>

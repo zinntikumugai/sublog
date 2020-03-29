@@ -1,239 +1,26 @@
 <!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    
-    <meta property="og:site_name" content="さぶろぐ!">
-    <meta property="og:type" content="article">
-
-    
-    <meta property="og:image" content="https://sublog.zinntikumugai.com//">
-    <meta property="twitter:image" content="https://sublog.zinntikumugai.com//" />
-    
-
-    
-    <meta name="title" content="Proxmox入れるときに手こずった" />
-    <meta property="og:title" content="Proxmox入れるときに手こずった" />
-    <meta property="twitter:title" content="Proxmox入れるときに手こずった" />
-    
-
-    
-    <meta name="description" content="余ってるマシンにProxmoxを入れる話">
-    <meta property="og:description" content="余ってるマシンにProxmoxを入れる話" />
-    <meta property="twitter:description" content="余ってるマシンにProxmoxを入れる話" />
-    
-
-    
-    <meta property="twitter:card" content="summary" />
-    
-    
-
-    <meta name="keyword"  content="">
-    <link rel="shortcut icon" href="/img/favicon.ico">
-
-    <title>Proxmox入れるときに手こずった-</title>
-
-    <link rel="canonical" href="/post/2020/03/debian_install_proxmox/">
-
-    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
-	
-    
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-
-    
-    <link rel="stylesheet" href="/css/hux-blog.min.css">
-
-    
-    <link rel="stylesheet" href="/css/zanshang.css">
-    
-    
-    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    
-    
-
-    
-    
-    <script src="/js/jquery.min.js"></script>
-    
-    
-    <script src="/js/bootstrap.min.js"></script>
-    
-    
-    <script src="/js/hux-blog.min.js"></script>
-
-    
-    
-
-</head>
-
-
-
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container-fluid">
-        
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">さぶろぐ!</a>
-        </div>
-
-        
-        
-        <div id="huxblog_navbar">
-            <div class="navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="/">Home</a>
-                    </li>
-                    
-                        
-                        <li>
-                            <a href="/categories/blog">blog</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/categories/tech">tech</a>
-                        </li>
-                        
-                    
-                    
-		    
-
-                    
-                </ul>
-            </div>
-        </div>
-        
-    </div>
-    
-</nav>
-<script>
-    
-    
-    
-    var $body   = document.body;
-    var $toggle = document.querySelector('.navbar-toggle');
-    var $navbar = document.querySelector('#huxblog_navbar');
-    var $collapse = document.querySelector('.navbar-collapse');
-
-    $toggle.addEventListener('click', handleMagic)
-    function handleMagic(e){
-        if ($navbar.className.indexOf('in') > 0) {
-        
-            $navbar.className = " ";
-            
-            setTimeout(function(){
-                
-                if($navbar.className.indexOf('in') < 0) {
-                    $collapse.style.height = "0px"
-                }
-            },400)
-        }else{
-        
-            $collapse.style.height = "auto"
-            $navbar.className += " in";
-        }
-    }
-</script>
-
-
-
-
-<style type="text/css">
-    header.intro-header {
-        background-image: url('/')
-    }
-</style>
-<header class="intro-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    <div class="tags">
-                        
-                        <a class="tag" href="/tags/proxmox" title="proxmox">
-                            proxmox
-                        </a>
-                        
-                        <a class="tag" href="/tags/kvm" title="kvm">
-                            kvm
-                        </a>
-                        
-                        <a class="tag" href="/tags/openvz" title="openvz">
-                            openvz
-                        </a>
-                        
-                    </div>
-                    <h1>Proxmox入れるときに手こずった</h1>
-                    <h2 class="subheading"></h2>
-                    <span class="meta">
-                        Posted by 
-                        
-                                 &#34;zinntikumugai&#34;
-                         
-                        on 
-                        Thursday, March 26, 2020
-                        
-                        
-                        
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-
-
-
-
-<article>
-    <div class="container">
-        <div class="row">
-
-            
-            <div class="
-                col-lg-11 col-lg-offset-1
-                col-md-10 col-md-offset-1
-                post-container">
-
-                
-                <header>
-                    <h2>TOC</h2>
-                </header>
-                <nav id="TableOfContents">
-  <ul>
-    <li><a href="#proxmoxとは">Proxmoxとは？</a></li>
-    <li><a href="#通常インストール">通常インストール</a></li>
-    <li><a href="#debianからproxmox">DebianからProxmox</a>
-      <ul>
-        <li><a href="#debianを入れる">Debianを入れる</a></li>
-        <li><a href="#prxmoxを入れる">Prxmoxを入れる</a></li>
-      </ul>
-    </li>
-    <li><a href="#懸念点">懸念点</a>
-      <ul>
-        <li><a href="#マシンスペックがゴミ">マシンスペックがゴミ</a></li>
-        <li><a href="#raidが弊害">RAIDが弊害？</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-                
-                <p>使ってないマシンにProxmoxを入れてみる</p>
+<html lang="en"><meta charset="utf-8"><meta name="generator" content="Hugo 0.67.1" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark"><title>Proxmox入れるときに手こずった&nbsp;&ndash;&nbsp;さぶろぐ!</title><link rel="stylesheet" href="/css/core.min.2c4e6fd0639e8469d787c8dbe1e551340ab0cc29fe2def12f4f7d30f25b17b900dc4b8aed796b79ef6b47b0696493ec6.css" integrity="sha384-LE5v0GOehGnXh8jb4eVRNAqwzCn&#43;Le8S9PfTDyWxe5ANxLiu15a3nva0ewaWST7G"><script>(function (w, d, s, l, i) {
+        w[l] = w[l] || []; w[l].push({
+            'gtm.start':
+                new Date().getTime(), event: 'gtm.js'
+        }); var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-PMS4FG4');</script><body>
+    <div class="base-body"><section id="header" class="site header">
+    <div class="header wrap"><span class="header left-side"><a class="site home" href="/"><span class="site name">さぶろぐ!</span></a></span>
+        <span class="header right-side"><div class="nav wrap"><nav class="nav"><a class="nav item" href="/categories/">Categories</a><a class="nav item" href="/tags/">Tags</a><a class="nav item" href="https://Currency.ovh"target="_blank">Currency.ovh</a><a class="nav item" href="https://github.com/zinntikumugai/"target="_blank">GitHub</a><a class="nav item" href="https://twitter.com/uesitananame55"target="_blank">Twitter</a></nav></div></span></div></section><div id="content"><section class="article header">
+    <h1 class="article title">Proxmox入れるときに手こずった</h1><p class="article date">2020年03月26日</p></section><article class="article markdown-body"><p>使ってないマシンにProxmoxを入れてみる</p>
 <h2 id="proxmoxとは">Proxmoxとは？</h2>
 <p>仮想環境を提供するサーバーソフトウェア<br>
 無料でWeb管理,CPUフルパワーで使えるのが強い(VMwareとかね&hellip;制限がね..)</p>
 <h2 id="通常インストール">通常インストール</h2>
 <p>公式イメージを使ってインストールをしてみる<br>
-<img src="https://i.imgur.com/qguK8Rq.jpg" alt="">
+<a target="_blank" rel="noopener noreferrer" 
+  href="https://i.imgur.com/qguK8Rq.jpg"><img  src="https://i.imgur.com/qguK8Rq.jpg"
+        alt/></a>
 <code>no cdrom found</code>と出て、なんかうまく行かない</p>
 <blockquote>
 <p>Download Rufus from <a href="https://rufus.ie/">https://rufus.ie/</a>. Either install it or use the portable version. Select the destination drive and the Proxmox VE ISO file.</p>
@@ -286,33 +73,12 @@ NASにしておいたほうが良かった説もあるがそのうちやって�
 <p>もともとSMB鯖だったのでRAID5?がしてあった(多分)<br>
 OSのインストール先をSATADOM(8GB)にしたためデータドライブとして使ってくれると思ったが使ってくれない<br>
 ストーレジ自体は認識してるので使えそうだけど勝手にやってくれないっぽい<br>
-<img src="https://i.imgur.com/cRqmTSO.png" alt=""><br>
+<a target="_blank" rel="noopener noreferrer" 
+  href="https://i.imgur.com/cRqmTSO.png"><img  src="https://i.imgur.com/cRqmTSO.png"
+        alt/></a><br>
 後でRAID解除してフォーマットしたりしたが未使用のディスクとしては認識してくれないようで&hellip;<br>
-ハードウェアRAIDのほうが楽だなぁ&hellip;</p>
-
-
-                
-
-                <hr>
-                <ul class="pager">
-                    
-                    <li class="previous">
-                        <a href="/post/2020/03/update_bios_for_supermicro/" data-toggle="tooltip" data-placement="top" title="supermicroのマザーボードをBIOS更新する">&larr;
-                            Previous Post</a>
-                    </li>
-                    
-                    
-                    <li class="next">
-                        <a href="/post/2020/03/hugo_modules/" data-toggle="tooltip" data-placement="top" title="Hugoのテーマをモジュール化する">Next
-                            Post &rarr;</a>
-                    </li>
-                    
-                </ul>
-
-                
-<div id="disqus-comment"></div>
-
-<div id="disqus_thread"></div>
+ハードウェアRAIDのほうが楽だなぁ&hellip;</p></article><section class="article labels"><a class="category" href=/categories/tech/>Tech</a><a class="tag" href=/tags/proxmox/>proxmox</a><a class="tag" href=/tags/kvm/>kvm</a><a class="tag" href=/tags/openvz/>openvz</a></section><section class="article navigation"><p><a class="link" href="/post/2020/03/hugo_modules/"><span class="li">&larr;</span>Hugoのテーマをモジュール化する</a></p><p><a class="link" href="/post/2020/03/update_bios_for_supermicro/"><span class="li">&rarr;</span>supermicroのマザーボードをBIOS更新する</a class="link">
+    </p></section><section class="article discussion"><div id="disqus_thread"></div>
 <script type="application/javascript">
     var disqus_config = function () {
     
@@ -331,158 +97,12 @@ OSのインストール先をSATADOM(8GB)にしたためデータドライブと
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
-
-
-            </div>
-            
-            <div class="
-                col-lg-11 col-lg-offset-1
-                col-md-10 col-md-offset-1
-                sidebar-container">
-
-                
-                
-
-                
-                
-            </div>
-        </div>
-    </div>
-</article>
-
-
-
-
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="list-inline text-center">
-                   
-                   <li>
-                       <a href='' rel="alternate" type="application/rss+xml" title="さぶろぐ!" >
-                           <span class="fa-stack fa-lg">
-                               <i class="fa fa-circle fa-stack-2x"></i>
-                               <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-                           </span>
-                       </a>
-                   </li>
-                   
-                    
-                    
-                    
-                    <li>
-                        <a href="https://twitter.com/uesitananame55">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    
-
-                    
-
-		    
-                    
-                    
-                    <li>
-                        <a target="_blank" href="https://github.com/zinntikumugai/">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-		    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-            
-            
-            
-                </ul>
-		<p class="copyright text-muted">
-                    Copyright &copy; さぶろぐ! 2020
-                    <br>
-                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
-                    <iframe
-                        style="margin-left: 2px; margin-bottom:-5px;"
-                        frameborder="0" scrolling="0" width="100px" height="20px"
-                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
-                    </iframe>
-                </p>
-            </div>
-        </div>
-    </div>
-</footer>
-
-
-
-
-<script>
-    function async(u, c) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-      s.parentNode.insertBefore(o, s);
-    }
-</script>
-
-
-
-
-
-
-<script>
-    
-    if($('#tag_cloud').length !== 0){
-        async("/js/jquery.tagcloud.js",function(){
-            $.fn.tagcloud.defaults = {
-                
-                color: {start: '#bbbbee', end: '#0085a1'},
-            };
-            $('#tag_cloud a').tagcloud();
-        })
-    }
-</script>
-
-
-<script>
-    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
-        var $nav = document.querySelector("nav");
-        if($nav) FastClick.attach($nav);
-    })
-</script>
-
-
-
-
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-82826188-14', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a></section></div><section id="footer" class="footer"><div class="footer-wrap">
+    <p class="copyright">©2020 さぶろぐ！</p>
+    <p class="powerby"><span>Powered by </span><a href="https://gohugo.io" 
+        target="_blank">Hugo</a><span> and the </span><a href="https://themes.gohugo.io/hugo-notepadium/" 
+        target="_blank">Notepadium</a></p>
+</div></section></div>
 </body>
+
 </html>

@@ -1,39 +1,25 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>golang on さぶろぐ!</title>
-    <link>https://sublog.zinntikumugai.com/tags/golang/</link>
+    <link>/tags/golang/</link>
     <description>Recent content in golang on さぶろぐ!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
+    <copyright>©2020 さぶろぐ！</copyright>
     <lastBuildDate>Tue, 03 Mar 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://sublog.zinntikumugai.com/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="/tags/golang/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>さぶのブログを作りました</title>
-      <link>https://sublog.zinntikumugai.com/post/2020/03/newblog/</link>
+      <link>/post/2020/03/newblog/</link>
       <pubDate>Tue, 03 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://sublog.zinntikumugai.com/post/2020/03/newblog/</guid>
-      <description>サブブログを作ってみました 以前から気になっていた、静的サイトジェネレーターのHUGOを使ったブログを作ってみました
-なぜHUGO? 　仕事の関係でGoを使いそうになったときに調べ物の途中でHUGOに出会いました
-ブログは以前からWordPressを使っていましたがPHPやらMySQLやらで動作がもっさりしていて、OSSやら知名度やらでやたらと攻撃対象となることも多く、サーバーの対策が結構面倒でした
-静的サイトは生成してしまえば基本的にはHostingサービスに置いてしまえばいいので運用面でもお手軽です
-　もちろん動的サイトもそれなりにいいところはあるのですが、ただのブログにそこまでリソースを裂きたくないのです&amp;hellip;
-アナリティクスやコメントなども外部サービスを使えば静的サイトでもできてしまいます
-そもそも書くのが面倒くさい WordPressはJetPackプラグインを入れることでMarkDown記法には対応しています
-しかし、若干挙動が異なることろが多いので
- VSCodeなどでMarkDownで書く MarkDownで書かれた記事をHTMLで出力 出力されたHTNMLを最適化(idなど不要タグが書かれてしまうのでそれらを除去) WordPressにアップロード  という結局面倒くさいことをしていました
-もちろんYなんたら記法で書くこともありますが、テーマの関係でh2タグが見づらいとか結局面倒くさいです
-要するに楽したいはずなのに余計めんどくさくなっていました
-そもそもブログを書いている理由 割と理由はいくつかありますが、主に備忘録のように記録に残して置きたいと言うのがあります。
-サクッと書いてしまいたいわけですが先程のように書くことすらめんどい状態です
-なのでHUGOを使えばMarkDownのまま使えますし頑張っていきたいです(もちろん流石にWordPressの方からインポート！とは行きませが)
-今後書く予定のもの メインのブログから完全に移行してもいいかもしれませんが、そこそこの記事数があります
-しょうもない内容もあるのでメインのブログは残しつつ、さくっと書けるものなどはざっくりメモ書き程度に使い、深める場合はメインにも書くかもしれません(もちろんメインのブログも並行してのんびりやっていこうと思います)
-小話 Goの勉強がてらHUGO入れてみたけど使うところとしてはGoの要素がないんですねこれ()</description>
+      <guid>/post/2020/03/newblog/</guid>
+      <description>&lt;h1 id=&#34;サブブログを作ってみました&#34;&gt;サブブログを作ってみました&lt;/h1&gt;
+&lt;p&gt;以前から気になっていた、静的サイトジェネレーターの&lt;code&gt;HUGO&lt;/code&gt;を使ったブログを作ってみました&lt;/p&gt;</description>
     </item>
     
   </channel>

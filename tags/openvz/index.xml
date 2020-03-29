@@ -1,30 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>openvz on さぶろぐ!</title>
-    <link>https://sublog.zinntikumugai.com/tags/openvz/</link>
+    <link>/tags/openvz/</link>
     <description>Recent content in openvz on さぶろぐ!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
+    <copyright>©2020 さぶろぐ！</copyright>
     <lastBuildDate>Thu, 26 Mar 2020 13:57:06 +0000</lastBuildDate>
     
-	<atom:link href="https://sublog.zinntikumugai.com/tags/openvz/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="/tags/openvz/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Proxmox入れるときに手こずった</title>
-      <link>https://sublog.zinntikumugai.com/post/2020/03/debian_install_proxmox/</link>
+      <link>/post/2020/03/debian_install_proxmox/</link>
       <pubDate>Thu, 26 Mar 2020 13:57:06 +0000</pubDate>
       
-      <guid>https://sublog.zinntikumugai.com/post/2020/03/debian_install_proxmox/</guid>
-      <description>使ってないマシンにProxmoxを入れてみる
-Proxmoxとは？ 仮想環境を提供するサーバーソフトウェア
-無料でWeb管理,CPUフルパワーで使えるのが強い(VMwareとかね&amp;hellip;制限がね..)
-通常インストール 公式イメージを使ってインストールをしてみる
-no cdrom foundと出て、なんかうまく行かない
- Download Rufus from https://rufus.ie/. Either install it or use the portable version. Select the destination drive and the Proxmox VE ISO file.
-Once you click Start a dialog asking to download a different version of GRUB will show up. Click No. In the next dialog select the DD mode.
-An alternative to Rufus is Etcher. Download Etcher from https://etcher.io. It will guide you through the process of selecting the ISO and your USB Drive.</description>
+      <guid>/post/2020/03/debian_install_proxmox/</guid>
+      <description>&lt;p&gt;使ってないマシンにProxmoxを入れてみる&lt;/p&gt;</description>
     </item>
     
   </channel>

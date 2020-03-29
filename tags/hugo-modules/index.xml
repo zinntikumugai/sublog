@@ -1,32 +1,25 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>hugo modules on さぶろぐ!</title>
-    <link>https://sublog.zinntikumugai.com/tags/hugo-modules/</link>
+    <link>/tags/hugo-modules/</link>
     <description>Recent content in hugo modules on さぶろぐ!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
+    <copyright>©2020 さぶろぐ！</copyright>
     <lastBuildDate>Sat, 28 Mar 2020 08:38:58 +0000</lastBuildDate>
     
-	<atom:link href="https://sublog.zinntikumugai.com/tags/hugo-modules/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="/tags/hugo-modules/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Hugoのテーマをモジュール化する</title>
-      <link>https://sublog.zinntikumugai.com/post/2020/03/hugo_modules/</link>
+      <link>/post/2020/03/hugo_modules/</link>
       <pubDate>Sat, 28 Mar 2020 08:38:58 +0000</pubDate>
       
-      <guid>https://sublog.zinntikumugai.com/post/2020/03/hugo_modules/</guid>
-      <description>Hugoのテーマをモジュール化する なんとなくできたらいいなぐらいでやってみます
-というより、やりましたの記事が無い(ﾄﾞｳｼﾃ&amp;hellip;
-今回もDocker版Hugoでやっていきます
-バイナリ版の場合はgoとgitを使える環境を整えましょう
-git submodule のリポジトリを消す 先に消してしまいます
-$ git submodule deinit -f src/themes/cleanwhite -f PATHのところは各自のものに置き換えてください
-$ rm -rf src/themes/ テーマフォルダも中身がないので消してしまいます
-$ rm -f .gitmodules 他にsubmoduleを使うものも無いので消してしまいます
-docker-compose.ymlの修正 HugoのDockerイメージは軽量版はモジュールを扱えないので対応版に変更します
-version: &amp;#39;3&amp;#39; services: hugo: container_name: hugo # image: peaceiris/hugo:v0.67.1 image: peaceiris/hugo:v0.67.1-mod # Hugo Modules ports: # ～～ 以下略 ～～ config.tomlの修正 baseURL = &amp;#34;https://sublog.zinntikumugai.com/&amp;#34; languageCode = &amp;#34;ja&amp;#34; title = &amp;#34;さぶろぐ!&amp;#34; # theme = &amp;#34;cleanwhite&amp;#34; # ～～ 中略 ～～  [module] [[module.imports]] path=&amp;#34;github.com/zhaohuabing/hugo-theme-cleanwhite&amp;#34; まず、(おそらくどこでもいいと思いますが)末尾に利用するモジュールのリポジトリを追加します 今回はテーマのみなので一つですね</description>
+      <guid>/post/2020/03/hugo_modules/</guid>
+      <description>&lt;h1 id=&#34;hugoのテーマをモジュール化する&#34;&gt;Hugoのテーマをモジュール化する&lt;/h1&gt;
+&lt;p&gt;なんとなくできたらいいなぐらいでやってみます&lt;/p&gt;</description>
     </item>
     
   </channel>
