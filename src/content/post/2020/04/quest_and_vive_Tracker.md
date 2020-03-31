@@ -6,7 +6,6 @@ tags:        ["vr","oculus","vive","trucker"]
 categories:  ["VR" ]
 ---
 
-# Quest(OculusLink) + Vive Tracker
 諸事情でVive Trackerを借りることができたのでフルトラをしていくよ
 <!--more-->
 ## 必要なもの
