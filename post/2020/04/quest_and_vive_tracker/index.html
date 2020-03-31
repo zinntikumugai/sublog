@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en"><meta charset="utf-8"><meta name="generator" content="Hugo 0.67.1" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark"><title>Quest(OculusLink) &#43; Vive Tracker&nbsp;&ndash;&nbsp;さぶろぐ!</title><link rel="stylesheet" href="/css/core.min.2c4e6fd0639e8469d787c8dbe1e551340ab0cc29fe2def12f4f7d30f25b17b900dc4b8aed796b79ef6b47b0696493ec6.css" integrity="sha384-LE5v0GOehGnXh8jb4eVRNAqwzCn&#43;Le8S9PfTDyWxe5ANxLiu15a3nva0ewaWST7G"><script>(function (w, d, s, l, i) {
+        w[l] = w[l] || []; w[l].push({
+            'gtm.start':
+                new Date().getTime(), event: 'gtm.js'
+        }); var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-PMS4FG4');</script><body>
+    <div class="base-body"><section id="header" class="site header">
+    <div class="header wrap"><span class="header left-side"><a class="site home" href="/"><span class="site name">さぶろぐ!</span></a></span>
+        <span class="header right-side"><div class="nav wrap"><nav class="nav"><a class="nav item" href="/categories/">Categories</a><a class="nav item" href="/tags/">Tags</a><a class="nav item" href="https://Currency.ovh"target="_blank">Currency.ovh</a><a class="nav item" href="https://github.com/zinntikumugai/"target="_blank">GitHub</a><a class="nav item" href="https://twitter.com/uesitananame55"target="_blank">Twitter</a></nav></div></span></div></section><div id="content"><section class="article header">
+    <h1 class="article title">Quest(OculusLink) + Vive Tracker</h1><p class="article date">2020年04月01日</p></section><article class="article markdown-body"><p>諸事情でVive Trackerを借りることができたのでフルトラをしていくよ</p>
+<h2 id="必要なもの">必要なもの</h2>
+<ul>
+<li>HMD: Quest</li>
+<li>PC: OculusLinkは通常の描画に加えてエンコードでGPUパワーを多く使うので余裕のあるものがいい</li>
+<li>USBケーブル(3.0): Type-C to Type-AかOculus公式のOculusLink用のType-C to Type-C</li>
+<li>ベースステーション: 1.0か2.0、最低でも1つ以上(1つあればなんとかなる)</li>
+<li>Vive Trucker: フルトラをするなら3つほど</li>
+</ul>
+<p>追加でTruckerを固定する物があるといいです 私は百均のクロックス的なやつと伸びる靴紐で足は固定しています<br>
+腰のトラッカーに関してはそこらへんにあった紐ですが…</p>
+<p>少々かかってしまいますがそれぞれ体に固定するものもあるそうです</p>
+<h2 id="セットアップ">セットアップ</h2>
+<p>予め、SteamVR、Oculusソフトウェアをインストールしておきます(SteamVRはSteamよりインストールできます)</p>
+<p><code>C:\Program Files (x86)\Steam\config\stemvr.vrsettings</code>のstemvrの項目項目を修正します</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+   <span style="color:#f92672">&#34;steamvr&#34;</span> : {
+      <span style="color:#f92672">&#34;activateMultipleDrivers&#34;</span> : <span style="color:#66d9ef">true</span>,
+      <span style="color:#f92672">&#34;enableHomeApp&#34;</span> : <span style="color:#66d9ef">false</span>,
+      <span style="color:#f92672">&#34;haveStartedTutorialForNativeChaperoneDriver&#34;</span> : <span style="color:#66d9ef">true</span>,
+      <span style="color:#f92672">&#34;requireHmd&#34;</span> : <span style="color:#66d9ef">false</span>,
+      <span style="color:#f92672">&#34;showAdvancedSettings&#34;</span> : <span style="color:#66d9ef">true</span>,
+      <span style="color:#f92672">&#34;showMirrorView&#34;</span> : <span style="color:#66d9ef">false</span>,
+      <span style="color:#f92672">&#34;supersampleScale&#34;</span> : <span style="color:#ae81ff">0.81999999284744263</span>
+   }
+}
+</code></pre></div><p>追加するのはこちら</p>
+<ul>
+<li><code>activateMultipleDrivers : true</code>: 複数の種類のドライバを読み込む(これをしないとトラッカーが見えない)</li>
+<li><code>requireHmd : false</code>: HMDを必須としない</li>
+</ul>
+<p>この状態でクエストをOculusLinkでSteamVRを立ち上げ、Viveトラッカーを接続すると
+<a target="_blank" rel="noopener noreferrer" 
+  href="https://cdn.discordapp.com/attachments/589079124618903553/691929721990021180/unknown.png"><img  src="https://cdn.discordapp.com/attachments/589079124618903553/691929721990021180/unknown.png"
+        alt/></a><br>
+この画像のように、トラッカーとベースステーションの位置があらぬところに…<br>
+おそらく、ベースステーションが基準となるHMDが無く、クエストは独自の基準点を持ってしまっていると思われます<br>
+この状態では縦横高さはともかく回転なども異なるためまともに使えません</p>
+<h2 id="openvr-spacecalibrator">OpenVR-SpaceCalibrator</h2>
+<p>別のトラッカーを基準に自動調整できるソフトウェアで対処します<br>
+<a href="https://github.com/pushrax/OpenVR-SpaceCalibrator/releases"target="_blank">OpenVR-SpaceCalibrator | GitHub</a>
+よりDL</p>
+<ol>
+<li>SteamVR終了後、インストール、SteamVRを改めて起動する</li>
+<li>SpaceCalibratorのメニューをVR上で開き、基準とするデバイス(OculusTouch等)と、適応するデバイス(Vive Trucker)を選択(シリアル番号で出てくるのでものすごいわかりにくい)
+<a target="_blank" rel="noopener noreferrer" 
+  href="https://i.imgur.com/k8tMOsD.png"><img  src="https://i.imgur.com/k8tMOsD.png"
+        alt/></a></li>
+<li>それぞれのデバイスをなるべく近くになるように持つ</li>
+<li><code>Start Calibration</code>を押して、8の字に動かす</li>
+</ol>
+<h3 id="truckerがどれかわからん">Truckerがどれかわからん</h3>
+<ol>
+<li>SteamVRのトラッカーの割当より<code>腰</code>,<code>左足</code>,<code>右足</code>のように割り当てる
+<a target="_blank" rel="noopener noreferrer" 
+  href="https://i.imgur.com/k3kDYhy.png"><img  src="https://i.imgur.com/k3kDYhy.png"
+        alt/></a></li>
+<li>コントローラーのテストより、各割当のトラッカーがどれかを確認、体につける
+<a target="_blank" rel="noopener noreferrer" 
+  href="https://i.imgur.com/dPNaU4Y.png"><img  src="https://i.imgur.com/dPNaU4Y.png"
+        alt/></a>
+<code>腰</code>,<code>左足</code>,<code>右足</code>などにしたとき、トラッカーのボタンは<code>Power</code>に割り当てられています</li>
+<li>キャリブレーションをする<br>
+おすすめは腰(取り外しがしやすい位置にある)</li>
+</ol>
+<h3 id="vrchatで使うときはどうするの">VRChatで使うときはどうするの?</h3>
+<p>トラッカーを認識した状態で起動するとTポーズで固まっているので、アバターの位置に合わせてください(画像では腰のトラッカーが見えてませんが、あります)
+<a target="_blank" rel="noopener noreferrer" 
+  href="https://i.imgur.com/BlzK7tK.jpg"><img  src="https://i.imgur.com/BlzK7tK.jpg"
+        alt/></a>
+<a target="_blank" rel="noopener noreferrer" 
+  href="https://i.imgur.com/6aflQwh.jpg"><img  src="https://i.imgur.com/6aflQwh.jpg"
+        alt/></a>
+<a target="_blank" rel="noopener noreferrer" 
+  href="https://i.imgur.com/xB1zu1U.jpg"><img  src="https://i.imgur.com/xB1zu1U.jpg"
+        alt/></a>
+おおよそで足などは動きますが、場合によっては右足だけ動かしたのに両足だけ動いてしまうことがあります<br>
+その場合はあらためてVRChat上でキャリブレーションをしてしてください<br>
+また、フルトラ中はstandingPlay/shitedPlayの切り替えはできません(代わりにキャリブレーションボタンになります)</p>
+<h2 id="まとめ">まとめ</h2>
+<p>毎度キャリブレーションをしなといけない手間がありますが、足腰が動かせるようになりました<br>
+おそらく基本的に他のVive,Valve製のHDM以外なら応用できると思われます(ViveとValveのHMDはデフォで対応してるので)<br>
+<del>フルトラで可愛く動こう!</del></p>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://tona.hatenablog.jp/entry/2019/12/11/231111"target="_blank">Oculus Questで無線フルトラをする - 簡易設定編 | トナのブログ</a></li>
+<li><a href="http://si-nounai.blogspot.com/2019/03/oculus-rift-x-vive-trackersteamvr-beta.html"target="_blank">Oculus Rift x Vive trackerセットアップガイド(SteamVR Beta 1.3.7対応ver.)  | しいの脳内日記</a></li>
+</ul></article><section class="article labels"><a class="category" href=/categories/vr/>VR</a><a class="tag" href=/tags/vr/>vr</a><a class="tag" href=/tags/oculus/>oculus</a><a class="tag" href=/tags/vive/>vive</a><a class="tag" href=/tags/trucker/>trucker</a></section><section class="article navigation"><p><a class="link" href="/post/2020/03/hugo_modules/"><span class="li">&rarr;</span>Hugoのテーマをモジュール化する</a class="link">
+    </p></section><section class="article discussion"><div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "zin3sublog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a></section></div><section id="footer" class="footer"><div class="footer-wrap">
+    <p class="copyright">©2020 さぶろぐ！</p>
+    <p class="powerby"><span>Powered by </span><a href="https://gohugo.io" 
+        target="_blank">Hugo</a><span> and the </span><a href="https://themes.gohugo.io/hugo-notepadium/" 
+        target="_blank">Notepadium</a></p>
+</div></section></div>
+</body>
+
+</html>
