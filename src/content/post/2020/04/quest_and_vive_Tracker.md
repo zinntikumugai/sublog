@@ -53,7 +53,7 @@ categories:  ["VR" ]
 この状態では縦横高さはともかく回転なども異なるためまともに使えません  
 
 ## OpenVR-SpaceCalibrator
-別のトラッカー(OculusTouchControllerでVive Trucker)を基準に自動調整できるソフトウェアで対処します  
+別のトラッカーを基準に自動調整できるソフトウェアで対処します  
 [OpenVR-SpaceCalibrator | GitHub](https://github.com/pushrax/OpenVR-SpaceCalibrator/releases)
 よりDL
 
@@ -70,8 +70,8 @@ categories:  ["VR" ]
 1. コントローラーのテストより、各割当のトラッカーがどれかを確認、体につける
     ![](https://i.imgur.com/dPNaU4Y.png)
     `腰`,`左足`,`右足`などにしたとき、トラッカーのボタンは`Power`に割り当てられています
-1. キャリブレーションをする
-
+1. キャリブレーションをする  
+    おすすめは腰(取り外しがしやすい位置にある)
 
 ### VRChatで使うときはどうするの?
 トラッカーを認識した状態で起動するとTポーズで固まっているので、アバターの位置に合わせてください(画像では腰のトラッカーが見えてませんが、あります) 
