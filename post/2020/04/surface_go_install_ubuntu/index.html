@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en"><meta charset="utf-8"><meta name="generator" content="Hugo 0.67.1" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark"><title>surface goにUbuntuをインストールする&nbsp;&ndash;&nbsp;さぶろぐ!</title><link rel="stylesheet" href="/css/core.min.2c4e6fd0639e8469d787c8dbe1e551340ab0cc29fe2def12f4f7d30f25b17b900dc4b8aed796b79ef6b47b0696493ec6.css" integrity="sha384-LE5v0GOehGnXh8jb4eVRNAqwzCn&#43;Le8S9PfTDyWxe5ANxLiu15a3nva0ewaWST7G"><script>(function (w, d, s, l, i) {
+        w[l] = w[l] || []; w[l].push({
+            'gtm.start':
+                new Date().getTime(), event: 'gtm.js'
+        }); var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-PMS4FG4');</script><body>
+    <div class="base-body"><section id="header" class="site header">
+    <div class="header wrap"><span class="header left-side"><a class="site home" href="/"><span class="site name">さぶろぐ!</span></a></span>
+        <span class="header right-side"><div class="nav wrap"><nav class="nav"><a class="nav item" href="/categories/">Categories</a><a class="nav item" href="/tags/">Tags</a><a class="nav item" href="https://Currency.ovh"target="_blank">Currency.ovh</a><a class="nav item" href="https://github.com/zinntikumugai/"target="_blank">GitHub</a><a class="nav item" href="https://twitter.com/uesitananame55"target="_blank">Twitter</a></nav></div></span></div></section><div id="content"><section class="article header">
+    <h1 class="article title">surface goにUbuntuをインストールする</h1><p class="article date">2020年04月09日</p></section><article class="article markdown-body"><p><del>クソスペ</del>Surface GoにVMは向いていない気がするので直接Ubuntuを動かせるようにしてみます<br>
+マルチブートしてもいいですが、なんとなく分けたかったので内蔵SSDには入れない方法で行きます</p>
+<h2 id="ubuntu-1804をインストール">Ubuntu 18.04をインストール</h2>
+<h3 id="用意しておくもの">用意しておくもの</h3>
+<ul>
+<li>Type-Cのハブ</li>
+<li>8GB程度の記憶メディア</li>
+<li>インストール先の記憶メディア</li>
+<li>USB接続のNIC</li>
+</ul>
+<p>まず、Surface GoはType-Cしか拡張IOがない上にmicroSDからのブートはできないようなので適当なType-C のハブを用意しておきます<br>
+8GBの記憶メディアはインストール用Liveイメージを書き込んでおきます<br>
+インストール先の記録メディアは今回は64GBのmicroSDカードを使います(インストール先としてはmicroSDスロットは使えます)<br>
+Surface Go内蔵WiFiはデフォルトで使えないため、適当なUSB接続のNICをを用意しておきます<br>
+今回は<a href="https://amzn.to/2XvDuEq"target="_blank">バッファローのやつ</a>を使いました<br>
+他のものでも構いませんがLinuxで追加ドライバなしで動くものが便利です</p>
+<h3 id="liveイメージを書き込む">Liveイメージを書き込む</h3>
+<p>8GBの記憶メディアにUbuntu公式か、日本語Ubuntuからisoイメージをダウンロードしておきます<br>
+Rufusなどで書き込んでおけばOKです</p>
+<h3 id="インストール">インストール</h3>
+<p>ハブにすべて接続して一旦Windowsを起動します<br>
+Windowsの設定を開き、更新とセキュリティ、回復へと進み、PCの起動をカスタマイズするの<code>今すぐ再起動</code>を押し、再起動します<br>
+WindowsBootマネージャーから外部のメディアを起動、ubuntu的なやつを選択します<br>
+正常に立ち上がるとインストーラーが起動するのでそのままインストールします</p>
+<h2 id="セットアップ">セットアップ</h2>
+<p>初期状態はタッチパネルも使えないので追加のドライバ類をインストールします<br>
+まずは更新</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt update
+sudo apt upgrade
+</code></pre></div><p>(以降はめんどいので<code>sudo</code>を省略しています)</p>
+<h3 id="カーネルのインストール">カーネルのインストール</h3>
+<p><a href="https://github.com/jakeday/linux-surface">https://github.com/jakeday/linux-surface</a>
+に従いインストールします</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">apt install git curl wget sed
+
+git clone --depth <span style="color:#ae81ff">1</span> https://github.com/jakeday/linux-surface.git ~/linux-surface
+cd ~/linux-surface
+sh setup.sh
+</code></pre></div><p>インストール中にいくつか質問がされるので内容に応じてyes/noで答えます</p>
+<ul>
+<li>サスペンドを休止状態にするか</li>
+<li>xorgのサンプルコンフィグを消すか</li>
+<li>パルスオーディオのサンプルコンフィグを消すか</li>
+<li>RTCをUTCに合わせるか</li>
+<li>カーネルをインストールするか</li>
+</ul>
+<p>一旦再起動します</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">reboot
+</code></pre></div><p>このまま起動するとSecureBootがONになってる場合はgrubが立ち上がりません<br>
+このままでは進まないので自己証明書で証明します<br>
+参考は<a href="https://github.com/jakeday/linux-surface/blob/master/SIGNING.md"target="_blank">こちら</a></p>
+<p><code>mokconfig.cnf</code>というファイルで作成します</p>
+<pre><code class="language-conf" data-lang="conf">HOME                    = .
+RANDFILE                = $ENV::HOME/.rnd 
+[ req ]
+distinguished_name      = req_distinguished_name
+x509_extensions         = v3
+string_mask             = utf8only
+prompt                  = no
+
+[ req_distinguished_name ]
+countryName             = &lt;YOURcountrycode&gt;
+stateOrProvinceName     = &lt;YOURstate&gt;
+localityName            = &lt;YOURcity&gt;
+0.organizationName      = &lt;YOURorganization&gt;
+commonName              = Secure Boot Signing Key
+emailAddress            = &lt;YOURemail&gt;
+
+[ v3 ]
+subjectKeyIdentifier    = hash
+authorityKeyIdentifier  = keyid:always,issuer
+basicConstraints        = critical,CA:FALSE
+extendedKeyUsage        = codeSigning,1.3.6.1.4.1.311.10.3.6
+nsComment               = &quot;OpenSSL Generated Certificate&quot;
+</code></pre><p><code>&lt;YOUR~&gt;</code>とあるところは適時変更してください</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">openssl req -config ./mokconfig.cnf <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>        -new -x509 -newkey rsa:2048 <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>        -nodes -days <span style="color:#ae81ff">36500</span> -outform DER <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>        -keyout <span style="color:#e6db74">&#34;MOK.priv&#34;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>        -out <span style="color:#e6db74">&#34;MOK.der&#34;</span>
+openssl x509 -in MOK.der -inform DER -outform PEM -out MOK.pem
+
+</code></pre></div><p>cnfファイルから公開鍵と秘密鍵を生成します<br>
+また、PEM型に変更します</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo mokutil --import MOK.der
+</code></pre></div><p>生成したキーをインストールします<br>
+このとき、パスワードを要求されますがキーを有効化するときに使うので適当に設定します</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">reboot
+</code></pre></div><p>そして再起動します</p>
+<h3 id="カーネルの署名">カーネルの署名</h3>
+<p><a target="_blank" rel="noopener noreferrer" 
+  href="https://i.imgur.com/DcyfLyx.jpg"><img  src="https://i.imgur.com/DcyfLyx.jpg"
+        alt/></a></p>
+<p>起動したらこんな画像になるので、<code>Enroll MOK</code>を選択</p>
+<p><a target="_blank" rel="noopener noreferrer" 
+  href="https://i.imgur.com/rYVKinJ.jpg"><img  src="https://i.imgur.com/rYVKinJ.jpg"
+        alt/></a></p>
+<p><code>View key 0</code>を選択します</p>
+<p>先程生成したキーか確認します</p>
+<p><a target="_blank" rel="noopener noreferrer" 
+  href="https://i.imgur.com/DX49aRk.jpg"><img  src="https://i.imgur.com/DX49aRk.jpg"
+        alt/></a></p>
+<p>Enterとか押したら有効するか聞かれるのでYesを選択します<br>
+そのままrebootします</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mokutil --list-enrolled
+</code></pre></div><p>一応インストールされたキーを確認してみます</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sbsign --key MOK.priv --cert MOK.pem /boot/vmlinuz-<span style="color:#f92672">[</span>KERNEL-VERSION<span style="color:#f92672">]</span>-surface-linux-surface --output /boot/vmlinuz-<span style="color:#f92672">[</span>KERNEL-VERSION<span style="color:#f92672">]</span>-surface-linux-surface.signed
+</code></pre></div><p>生成したキーで署名します</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cp /boot/initrd.img-<span style="color:#f92672">[</span>KERNEL-VERSION<span style="color:#f92672">]</span>-surface-linux-surface<span style="color:#f92672">{</span>,.signed<span style="color:#f92672">}</span>
+</code></pre></div><p>署名したキーと未署名をコピーします</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">update-grub
+</code></pre></div><p>これらの変更をgrubに反映します</p>
+<p>再起動して起動時ののカーネル選択で、署名したカーネルを選択します</p>
+<p>正常に起動すれば、タッチパネル等が機能します</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mv /boot/vmlinuz-<span style="color:#f92672">[</span>KERNEL-VERSION<span style="color:#f92672">]</span>-surface-linux-surface<span style="color:#f92672">{</span>.signed,<span style="color:#f92672">}</span>
+mv /boot/initrd.img-<span style="color:#f92672">[</span>KERNEL-VERSION<span style="color:#f92672">]</span>-surface-linux-surface<span style="color:#f92672">{</span>.signed,<span style="color:#f92672">}</span>
+update-grub
+</code></pre></div><p>不要になった未署名のカーネルを署名済みのカーネルで上書きしてしまいます</p>
+<p>次回以降のカーネル更新も同様に署名してください</p>
+<h3 id="スワップファイルの修正">スワップファイルの修正</h3>
+<p>休止状態の変更をした場合スワップファイルを修正します
+参考は<a href="https://fitzcarraldoblog.wordpress.com/2018/07/14/configuring-lubuntu-18-04-to-enable-hibernation-using-a-swap-file/"target="_blank">こちら</a>と<a href="https://wiki.archlinux.jp/index.php/%E3%82%B5%E3%82%B9%E3%83%9A%E3%83%B3%E3%83%89%E3%81%A8%E3%83%8F%E3%82%A4%E3%83%90%E3%83%8D%E3%83%BC%E3%83%88"target="_blank">こちら</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">swapoff -a
+</code></pre></div><p>一旦すべてのスワップを外します</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>/dev/zero of<span style="color:#f92672">=</span>/swapfile bs<span style="color:#f92672">=</span>1M count<span style="color:#f92672">=</span><span style="color:#ae81ff">8192</span>
+</code></pre></div><p>メインメモリと同容量のスワップを作成します(8GB)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">grep swapfile /etc/fstab
+</code></pre></div><p>念の為<code>/etc/fstab</code>にswapfileの記述があることを確認します</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">blkid
+</code></pre></div><p>接続しているデバイスから、swapfileのあるドライブパーテーションのUUIDをメモしておきます</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">apt install uswsusp
+</code></pre></div><p><code>filefrag -v /swafpfile</code>というコマンドでswap offsetを調べられるのですが、非常にわかりにくいため<code>uswsusp</code>をインストールします</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">swap-offset /swapfile
+</code></pre></div><p>こちらのコマンドでoffsetを調べます<br>
+こちらもメモしておきます</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vim /etc/default/grub
+</code></pre></div><p><code>GRUB_CMDLINE_LINUX_DEFAULT</code>という項目に<code>resume=UUID=&lt;UUID&gt; resume_offset=&lt;RESUME_OFFSET&gt; resumedelay=15</code>を追加します</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">update-grub
+</code></pre></div><p>grubを更新します</p>
+<p><code>/etc/initramfs-tools/conf.d/resume</code>に同様に下記の通り追加します</p>
+<pre><code>RESUME=UUID=&lt;UUID&gt; resume_offset=&lt;OFFSET&gt;
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">update-initramfs -u -k all
+</code></pre></div><p>initramfsを更新します</p>
+<p><code>/etc/polkit-1/rules.d/85-suspend.rules</code>に下記を書き込みます</p>
+<pre><code>polkit.addRule(function(action, subject) {
+    if (action.id == &quot;org.freedesktop.login1.suspend&quot; ||
+        action.id == &quot;org.freedesktop.login1.suspend-multiple-sessions&quot; ||
+        action.id == &quot;org.freedesktop.login1.hibernate&quot; ||
+        action.id == &quot;org.freedesktop.login1.hibernate-multiple-sessions&quot;)
+    {
+        return polkit.Result.YES;
+    }
+});
+</code></pre><p><code>/var/lib/polkit-1/localauthority/50-local.d/50-enable-suspend-on-lockscreen.pkla</code>ファイルに下記を追加します</p>
+<pre><code>[Allow hibernation and suspending with lock screen]
+Identity=unix-user:*
+Action=org.freedesktop.login1.suspend;org.freedesktop.login1.suspend-multiple-sessions;org.freedesktop.login1.hibernate;org.freedesktop.login1.hibernate-multiple-sessions
+ResultAny=yes
+ResultInactive=yes
+ResultActive=yes
+</code></pre><p>最後に再起動をかければOKです</p>
+<p>ロックをかけ、休止状態をかけるとメモリのデータをすべてswapに書き込むためフリーズみたいになりますが休止状態に移行します<br>
+今回USB 2.0接続のmicroSDに書き込んでいるため非常にメモリのデータに書き込みが遅いですができました</p></article><section class="article labels"><a class="category" href=/categories/tech/>Tech</a><a class="tag" href=/tags/surface/>surface</a><a class="tag" href=/tags/ubuntu/>ubuntu</a></section><section class="article navigation"><p><a class="link" href="/post/2020/04/quest_and_vive_tracker/"><span class="li">&rarr;</span>Quest(OculusLink) + Vive Tracker</a class="link">
+    </p></section><section class="article discussion"><div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "zin3sublog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a></section></div><section id="footer" class="footer"><div class="footer-wrap">
+    <p class="copyright">©2020 さぶろぐ！</p>
+    <p class="powerby"><span>Powered by </span><a href="https://gohugo.io" 
+        target="_blank">Hugo</a><span> and the </span><a href="https://themes.gohugo.io/hugo-notepadium/" 
+        target="_blank">Notepadium</a></p>
+</div></section></div>
+</body>
+
+</html>

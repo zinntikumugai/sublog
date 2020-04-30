@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>surface on さぶろぐ!</title>
+    <link>/tags/surface/</link>
+    <description>Recent content in surface on さぶろぐ!</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>©2020 さぶろぐ！</copyright>
+    <lastBuildDate>Thu, 09 Apr 2020 21:29:58 +0000</lastBuildDate>
+    
+        <atom:link href="/tags/surface/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>surface goにUbuntuをインストールする</title>
+      <link>/post/2020/04/surface_go_install_ubuntu/</link>
+      <pubDate>Thu, 09 Apr 2020 21:29:58 +0000</pubDate>
+      
+      <guid>/post/2020/04/surface_go_install_ubuntu/</guid>
+      <description>&lt;p&gt;&lt;del&gt;クソスペ&lt;/del&gt;Surface GoにVMは向いていない気がするので直接Ubuntuを動かせるようにしてみます&lt;br&gt;
+マルチブートしてもいいですが、なんとなく分けたかったので内蔵SSDには入れない方法で行きます&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
