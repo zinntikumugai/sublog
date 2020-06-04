@@ -4,6 +4,7 @@ date: 2020-05-13T00:34:17Z
 author:      "zinntikumugai"
 tags:        ["vr", "keyboard","setamvr"]
 categories:  ["Tech" ]
+draft: true
 ---
 
 SteamVRで動くオーバーレイ系のツールはいくつかあるのですが、キーボードが不便なことが多かったのでまとめてみました
